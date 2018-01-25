@@ -1,5 +1,5 @@
 
-%% Version 0.1
+%% Version 0.1.1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -47,14 +47,20 @@
 %% section name and magazine title your     %%
 %% article will appear in.                  %%
 %%                                          %%
+%%  Section title = The Title of the        %%
+%%  section this article will appear in.    %%
+%%  Found in EMS.                           %%
+%%                                          %%
+%%  MAGAZINE TITLE = The magazine name you  %%
+%%  are writing for                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \ieeecsPageHeaders{SECTION TITLE HERE}{MAGAZINE TITLE HERE}
 
-\begin{document}
+\begin{document}	
 
-\ieeecsInsertHeader{ARTICLE TYPE: Section Title Goes Here}
+\ieeecsInsertHeader{SECTION TITLE HERE}
 
 \ieeecsArticleTitle
 
@@ -72,6 +78,7 @@
 
 \ieeecsIntroduction{Insert your introduction here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.}
 
+\ieeecsIntroduction{\noindent You can have multiple paragraphs in your introduction if needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -176,6 +183,20 @@ Here is an example of using a citation \textsuperscript{~\cite{Niu:2018ejh}}.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  Author Bios                            %%
+%%                                                         %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt.}
+
+\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt.}
+
+\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -107,6 +107,25 @@
 \renewcommand{\headrulewidth}{0pt}% disable the underline of the header part
 }
 
+%============= Article title ==============
+
+\newcommand{%
+	\ieeecsArticleTitle}[1]{%
+	\color{cs-blue} 
+	\Huge %\fontsize{33pt}{49pt}
+	\begin{flushleft}
+		{\fontfamily{phv}
+			\selectfont		
+			\thetitle
+		}
+	\end{flushleft}
+	\color{black}
+	
+	\normalsize	
+	\vspace*{1em}
+}
+
+
 %============= Author Box ==============
 
 \newcommand{%
@@ -145,23 +164,6 @@
 \vspace*{1in}	
 }
 
-%============= Article title ==============
-
-\newcommand{%
-\ieeecsArticleTitle}[1]{%
-\color{cs-blue} 
-\Huge %\fontsize{33pt}{49pt}
-\begin{flushleft}
-{\fontfamily{phv}
-	\selectfont		
-	\thetitle
-}
-\end{flushleft}
-\color{black}
-
-\normalsize	
-\vspace*{1em}
-}
 
 %============= Introduction Section (unused)  ==============
 
@@ -218,3 +220,13 @@
 		\hdashrule{\textwidth}{1pt}{1pt}
 	\vspace*{1em}
 }
+
+
+%============= Author Bios ==============
+
+\newcommand{%
+	\ieeecsAuthorBio}[2]{%
+	\textbf{#1} #2%
+	\vspace*{1em}
+}
+
