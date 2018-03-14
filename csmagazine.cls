@@ -16,8 +16,8 @@
 %allow multi-line comments
 \RequirePackage{comment}
 
-%For References, to import .bib file
-\RequirePackage{cite}
+%For References, using BibLaTeX and biber
+\RequirePackage[style=numeric]{biblatex}
 
 %Selects a font for this document
 \RequirePackage{times}
@@ -45,16 +45,16 @@
 \RequirePackage{abstract}
 
 %Adjust the color used in section titles
-\usepackage{titlesec}
+\RequirePackage{titlesec}
 
 %To control the page headers
-\usepackage{fancyhdr}
+\RequirePackage{fancyhdr}
 
 %To add a dashed rule under figure captions
 \RequirePackage{dashrule}
 
 %To set leading
-\usepackage{leading}
+\RequirePackage{leading}
 
 
 %============= Colors ==============
@@ -96,16 +96,33 @@
 \leading{14pt}
 
 
-%============= Running Page Headers  ==============
+%============= First Page Header Graphic / Running page headers ==============
 
 \newcommand{%
-\ieeecsPageHeaders}[2]{%
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LO]{\includegraphics[width=2em]{pageHeader.jpg}\small\color{cs-grey} ~~#1}% Odd page header and number to left top
-\fancyhead[LE]{\includegraphics[width=2em]{pageHeader.jpg}\small\color{cs-grey} ~~#2}% Even page header and number at left top
-\renewcommand{\headrulewidth}{0pt}% disable the underline of the header part
+	\ieeecsPageHeaders}[2]{%
+	\pagestyle{fancy}
+	\fancyhf{}
+	\fancyhead[LO]{\includegraphics[width=2em]{pageHeader.jpg}\small\color{cs-grey} ~~#1}% Odd page header and number to left top
+	\fancyhead[LE]{\includegraphics[width=2em]{pageHeader.jpg}\small\color{cs-grey} ~~#2}% Even page header and number at left top
+	\renewcommand{\headrulewidth}{0pt}% disable the underline of the header part
+	
+	%Add the header image
+	\begin{figure}
+		\centering
+		\vspace*{-1.1in}
+		\noindent\makebox[\textwidth]{\includegraphics[width=9in]{articleHeader.png}}	
+	\end{figure}%
+	
+	%Add the article type and section title
+	\vspace*{-1.2in}
+	{\fontfamily{phv}\fontsize{10pt}{15pt}
+		\selectfont
+		\noindent\colorbox{cs-grey}{\color{white}\textbf{#1}}
+	}
+	\vspace*{1in}
 }
+
+
 
 %============= Article title ==============
 
@@ -143,26 +160,7 @@
 } 
 
 
-%============= First Page Header Graphic ==============
 
-\newcommand{%
-\ieeecsInsertHeader}[1]{%
-
-%Add the header image
-\begin{figure}
-	\centering
-	\vspace*{-1.1in}
-	\noindent\makebox[\textwidth]{\includegraphics[width=9in]{articleHeader.png}}	
-\end{figure}%
-
-%Add the article type and section title
-\vspace*{-1.2in}
-{\fontfamily{phv}\fontsize{10pt}{15pt}
-	\selectfont
-	\noindent\colorbox{cs-grey}{\color{white}\textbf{#1}}
-}
-\vspace*{1in}	
-}
 
 
 %============= Introduction Section (unused)  ==============
@@ -174,13 +172,23 @@
 \color{black}\
 }
 
+%============= Abstract  ==============
+
+%Set the abstract to used a sans-serif font
+
+\newcommand{%
+	\ieeecsAbstract}[1]{%
+	\textsf{{\small #1}}
+}
+
 %============= New Introduction Section  ==============
 
-%Set the intro to used a sans-serif font
+%The Introduction
 
 \newcommand{%
 	\ieeecsIntroduction}[1]{%
-	\textsf{{\small #1}}
+	\vspace*{2em}
+	#1
 }
 
 %============= Author Affiliations ==============
@@ -196,6 +204,7 @@
 \titleformat{\section}{\fontfamily{phv}\selectfont\Large\color{cs-blue}}{}{0pt}{\includegraphics[height=1em]{sectionTitleGraphic.jpg}~}
 \titleformat{\subsection}{\fontfamily{phv}\selectfont\large\color{cs-blue}}{}{0pt}{}
 \titleformat{\subsubsection}{\fontfamily{phv}\selectfont}{}{0pt}{}
+
 
 
 %===== Table Titles =============

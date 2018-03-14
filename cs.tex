@@ -1,5 +1,5 @@
 
-%% Version 0.1.1
+%% Version 0.1.2
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -56,15 +56,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\ieeecsPageHeaders{SECTION TITLE HERE}{MAGAZINE TITLE HERE}
+%include your bib file here
+\addbibresource{refs.bib}
+
 
 \begin{document}	
 
-\ieeecsInsertHeader{SECTION TITLE HERE}
+
+\ieeecsPageHeaders{SECTION TITLE HERE}{MAGAZINE TITLE HERE}
 
 \ieeecsArticleTitle
 
 \ieeecsInsertAuthor
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The abstract goes here                   %%
+%%                                          %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\ieeecsAbstract{Insert the abstract of your paper here. orem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -172,6 +186,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac just
 
 Here is an example of using a citation \textsuperscript{~\cite{Niu:2018ejh}}.
 
+
 %Example of a bulleted list
 \begin{itemize}
 	\item First item
@@ -186,26 +201,40 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac just
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                  Author Bios                            %%
-%%                                                         %%
-%%                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt.}
-
-\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt.}
-
-\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%
 %%                                                         %%
 %%                                                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\bibliography{refs}
-\bibliographystyle{plain}
+%custom references heading which we will add a dashed rule too
+\vspace*{2em}\fontfamily{phv}\selectfont\Large References  \normalsize
+
+\hdashrule{\textwidth}{1pt}{1pt}
+
+\printbibliography[heading=none]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  Author Bios                            %%
+%%                                                         %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace*{1.5em}\fontfamily{phv}\selectfont\Large About the authors  \normalsize
+
+\hdashrule{\textwidth}{1pt}{1pt} 
+\vspace*{1.5em}
+
+%\section*{About the Authors}
+
+
+\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt.}
+
+\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt.}
+
+\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here.}
+
+
+
 
 \end{document}
