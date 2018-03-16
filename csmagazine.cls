@@ -235,6 +235,7 @@
 
 \newcommand{%
 	\ieeecsAuthorBio}[2]{%
+	\noindent
 	\textbf{#1} #2%
 	\vspace*{1em}
 }
