@@ -13,6 +13,9 @@
 %set encoding
 \RequirePackage[utf8]{inputenc}
 
+%For math
+\RequirePackage{amsmath}
+
 %allow multi-line comments
 \RequirePackage{comment}
 
@@ -150,8 +153,9 @@
 \begin{wrapfigure}{l}{0.45\textwidth}
 	\fcolorbox{gray!15}{gray!15}{%
 		\begin{minipage}[t]{0.4\textwidth}
-			\begin{flushleft}
-				\small
+			\begin{flushleft}			
+				\vspace*{.5em}
+				\small 
 				\textbf{\theauthor}
 				\normalsize
 			\end{flushleft}
@@ -196,6 +200,12 @@
 \newcommand{%
 	\ieeecsAffiliation}[1]{%
 	\textnormal{\emph{#1}}%
+	\vspace*{.25em}
+}
+
+\newcommand{%
+	\ieeecsnoAffiliation}{%
+	\vspace*{.25em}
 }
 
 
@@ -229,6 +239,31 @@
 		\hdashrule{\textwidth}{1pt}{1pt}
 	\vspace*{1em}
 }
+
+%============= References Header  ==============
+
+\newcommand{%
+	\ieeecsReferences}[1]{%
+	\vspace*{1em}
+	{\color{cs-blue}
+	\noindent\hdashrule{\textwidth}{1pt}{1pt}}
+	\\\\ 
+	\vspace*{1.5em}\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize 
+	
+}
+
+
+%============= About the Author  ==============
+
+\newcommand{%
+	\ieeecsAboutAuthor}[1]{%
+	\vspace*{1em}
+	{\color{cs-blue}
+	\noindent\hdashrule{\textwidth}{1pt}{1pt}}
+	\\\\ 
+	\vspace*{1.5em}\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize 
+}
+
 
 
 %============= Author Bios ==============

@@ -1,5 +1,5 @@
 
-%% Version 0.1.2
+%% Version 0.1.3
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -30,14 +30,17 @@
 %% Put a line break \\ after each author    %%
 %% use \ieeecsAffiliaiton{} after the       %%
 %% author name to assign an affiliation     %%                
+%% use \ieeecsnoAffiliation if the author   %%
+%% has no affliation, to create appropiate  %%
+%% spacing                                  %%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \author{%
-	First Author \ieeecsAffiliation{First Author Affiliation}\\
-	Second Author\\
-	Third Author \ieeecsAffiliation{Third Author Affiliation}\\ 
+	First Author\\ \ieeecsAffiliation{First Author Affiliation}\\
+	Second Author\\	\ieeecsnoAffiliation
+	Third Author\\ \ieeecsAffiliation{Third Author Affiliation}\\ 
 }
 
 
@@ -92,7 +95,7 @@
 
 \ieeecsIntroduction{Insert your introduction here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.}
 
-\ieeecsIntroduction{\noindent You can have multiple paragraphs in your introduction if needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.}
+\ieeecsIntroduction{You can have multiple paragraphs in your introduction if needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,8 +147,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac just
 
 Consectetur adipiscing elit. $\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$ Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.
 
+%Example of a numbered display equation. Please use \begin{equation} for numbered display math
+
 \begin{equation}
-E=m
+\sqrt{\frac{x^2}{k+1}}\qquad
+x^\frac{2}{k+1}\qquad
+\frac{\partial^2f}{\partial x^2}
 \end{equation}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.
@@ -199,6 +206,13 @@ Another citation \textsuperscript{~\cite{Goossens1997}}.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.
 
+
+%Example of an un-numbered display equation. Please use \[...\] instead of $$...$$ for un-numbered display math
+
+\[
+\binom{n}{k} =\binom{n-1}{k} + \binom{n-1}{k-1}
+\]
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.
 
 
@@ -208,12 +222,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac just
 %%                                                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%custom references heading which we will add a dashed rule too
-\vspace*{2em}\fontfamily{phv}\selectfont\Large\noindent References  \normalsize
-
-\hdashrule{\textwidth}{1pt}{1pt}
+\ieeecsReferences{REFERENCES}
 
 \printbibliography[heading=none]
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -222,13 +234,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac just
 %%                                                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace*{1.5em}\fontfamily{phv}\selectfont\Large\noindent About the authors  \normalsize
 
-\hdashrule{\textwidth}{1pt}{1pt} 
-\vspace*{1.5em}
-
-%\section*{About the Authors}
-
+\ieeecsAboutAuthor{ABOUT THE AUTHORS}
 
 \ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt.}
 
