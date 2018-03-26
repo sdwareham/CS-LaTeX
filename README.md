@@ -2,7 +2,7 @@
 
 A LaTeX template for use with IEEE Computer Society magazines. This early version of a LaTeX template for Computer Society magazines is for testing purposes only.
 
-Not for use with article submission!
+!!!! Not for use with article submission !!!!!!
 
 This template has been tested under the following conditions
 
@@ -11,9 +11,10 @@ Distribution: TeX Live
 Editor: TeXStudio 
 PDFLATEX: pdflatex -version pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017)
 
-Packages used by and required in this template:
+Packages that are used by and are required in this template:
 
 inputenc 
+amsmath
 comment 
 cite 
 times 
