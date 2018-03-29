@@ -96,7 +96,10 @@
 \renewcommand{\absnamepos}{empty} % originally center
 
 %Set leading for article
-\leading{14pt}
+\leading{12pt}
+
+%set spacing between paragraphs
+\setlength{\parskip}{1em}
 
 
 %============= First Page Header Graphic / Running page headers ==============
@@ -113,16 +116,16 @@
 	\begin{figure}
 		\centering
 		\vspace*{-1.1in}
-		\noindent\makebox[\textwidth]{\includegraphics[width=9in]{articleHeader.png}}	
+		\noindent\makebox[\textwidth]{\includegraphics[width=9in]{articleHeader.png}}		
 	\end{figure}%
 	
 	%Add the article type and section title
 	\vspace*{-1.2in}
 	{\fontfamily{phv}\fontsize{10pt}{15pt}
 		\selectfont
-		\noindent\colorbox{cs-grey}{\color{white}\textbf{#1}}
+		\noindent\fcolorbox{cs-grey}{cs-grey}{\makebox[\textwidth][l]{{\color{white}#1}}}
 	}
-	\vspace*{1in}
+	\vspace*{.5in}
 }
 
 
@@ -132,7 +135,7 @@
 \newcommand{%
 	\ieeecsArticleTitle}[1]{%
 	\color{cs-blue} 
-	\Huge %\fontsize{33pt}{49pt}
+	\Huge%\fontsize{33pt}{49pt}
 	\begin{flushleft}
 		{\fontfamily{phv}
 			\selectfont		
@@ -191,7 +194,6 @@
 
 \newcommand{%
 	\ieeecsIntroduction}[1]{%
-	\vspace*{2em}
 	#1
 }
 
@@ -249,6 +251,7 @@
 	\noindent\hdashrule{\textwidth}{1pt}{1pt}}
 	\\\\ 
 	\vspace*{1.5em}\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize 
+	\vspace*{-2em}
 	
 }
 
@@ -261,7 +264,8 @@
 	{\color{cs-blue}
 	\noindent\hdashrule{\textwidth}{1pt}{1pt}}
 	\\\\ 
-	\vspace*{1.5em}\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize 
+	\vspace*{1.5em}\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize
+	\vspace*{-1.5em}
 }
 
 
