@@ -4,11 +4,14 @@
 \ProvidesClass{csmagazine}[2017/12/19 IEEE Computer Society magazine LaTeX class]
 
 %Based on article class
-\LoadClass[9pt, letterpaper, twoside]{article}
+\LoadClass[9pt, letterpaper, twoside]{extarticle}
+
 
 
 %============= Import Required Packages ==============
 
+%proviceds extarticle with font size ranges from 8-20pt
+\RequirePackage{extsizes}
 
 %set encoding
 \RequirePackage[utf8]{inputenc}
@@ -59,6 +62,9 @@
 %To set leading
 \RequirePackage{leading}
 
+%Changes scaling of \Huge
+\RequirePackage[12pt]{moresize}
+
 
 %============= Colors ==============
 
@@ -108,8 +114,8 @@
 	\ieeecsPageHeaders}[2]{%
 	\pagestyle{fancy}
 	\fancyhf{}
-	\fancyhead[LO]{\includegraphics[width=2em]{pageHeader.jpg}\small\color{cs-grey} ~~#1}% Odd page header and number to left top
-	\fancyhead[LE]{\includegraphics[width=2em]{pageHeader.jpg}\small\color{cs-grey} ~~#2}% Even page header and number at left top
+	\fancyhead[LO]{\includegraphics[width=2em]{pageHeader.jpg}{\fontfamily{phv}\small\color{cs-grey} ~~#1}}% Odd page header and number to left top
+	\fancyhead[LE]{\includegraphics[width=2em]{pageHeader.jpg}{\fontfamily{phv}\small\color{cs-grey} ~~#2}}% Even page header and number at left top
 	\renewcommand{\headrulewidth}{0pt}% disable the underline of the header part
 	
 	%Add the header image
@@ -126,6 +132,9 @@
 		\noindent\fcolorbox{cs-grey}{cs-grey}{\makebox[\textwidth][l]{{\color{white}#1}}}
 	}
 	\vspace*{.5in}
+	
+	%Added to fix \headheight warnings
+	\setlength{\headheight}{14pt}
 }
 
 
@@ -135,10 +144,10 @@
 \newcommand{%
 	\ieeecsArticleTitle}[1]{%
 	\color{cs-blue} 
-	\Huge%\fontsize{33pt}{49pt}
+	\Huge
 	\begin{flushleft}
-		{\fontfamily{phv}
-			\selectfont		
+		{\fontfamily{phv}			
+			\selectfont			
 			\thetitle
 		}
 	\end{flushleft}
@@ -201,7 +210,7 @@
 
 \newcommand{%
 	\ieeecsAffiliation}[1]{%
-	\textnormal{\emph{#1}}%
+	\textnormal{#1}%
 	\vspace*{.25em}
 }
 
@@ -246,11 +255,11 @@
 
 \newcommand{%
 	\ieeecsReferences}[1]{%
-	\vspace*{1em}
+	\vspace*{.5em}
 	{\color{cs-blue}
 	\noindent\hdashrule{\textwidth}{1pt}{1pt}}
 	\\\\ 
-	\vspace*{1.5em}\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize 
+	\vspace*{1.5em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize }
 	\vspace*{-2em}
 	
 }
@@ -264,7 +273,7 @@
 	{\color{cs-blue}
 	\noindent\hdashrule{\textwidth}{1pt}{1pt}}
 	\\\\ 
-	\vspace*{1.5em}\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize
+	\vspace*{1.5em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize}
 	\vspace*{-1.5em}
 }
 
@@ -275,7 +284,7 @@
 \newcommand{%
 	\ieeecsAuthorBio}[2]{%
 	\noindent
-	\textbf{#1} #2%
+	{\fontfamily{ptm}\textbf{#1} #2}%
 	\vspace*{1em}
 }
 
