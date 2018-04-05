@@ -10,8 +10,6 @@
 
 %============= Import Required Packages ==============
 
-%proviceds extarticle with font size ranges from 8-20pt
-\RequirePackage{extsizes}
 
 %set encoding
 \RequirePackage[utf8]{inputenc}
@@ -23,7 +21,7 @@
 \RequirePackage{comment}
 
 %For References, using BibLaTeX and biber
-\RequirePackage[style=numeric]{biblatex}
+\RequirePackage[style=numeric, sorting=none]{biblatex}
 
 %Selects a font for this document
 \RequirePackage{times}
@@ -126,10 +124,10 @@
 	\end{figure}%
 	
 	%Add the article type and section title
-	\vspace*{-1.2in}
+	\vspace*{-1in}
 	{\fontfamily{phv}\fontsize{10pt}{15pt}
 		\selectfont
-		\noindent\fcolorbox{cs-grey}{cs-grey}{\makebox[\textwidth][l]{{\color{white}#1}}}
+		\noindent\hspace{-1.5em}\fcolorbox{cs-grey}{cs-grey}{\makebox[\textwidth][l]{\color{white}#1}}
 	}
 	\vspace*{.5in}
 	
@@ -194,7 +192,7 @@
 
 \newcommand{%
 	\ieeecsAbstract}[1]{%
-	\textsf{{\small #1}}
+	\raggedright\textsf{{\small #1}}
 }
 
 %============= New Introduction Section  ==============
@@ -222,8 +220,8 @@
 
 %============= Update Section Titles to use CS blue ==============
 
-\titleformat{\section}{\fontfamily{phv}\selectfont\Large\color{cs-blue}}{}{0pt}{\includegraphics[height=1em]{sectionTitleGraphic.jpg}~}
-\titleformat{\subsection}{\fontfamily{phv}\selectfont\large\color{cs-blue}}{}{0pt}{}
+\titleformat{\section}{\fontfamily{phv}\selectfont\huge\color{cs-blue}}{}{0pt}{\includegraphics[height=1em]{sectionTitleGraphic.jpg}~}
+\titleformat{\subsection}{\fontfamily{phv}\selectfont\Large\color{cs-blue}}{}{0pt}{}
 \titleformat{\subsubsection}{\fontfamily{phv}\selectfont}{}{0pt}{}
 
 
@@ -257,10 +255,12 @@
 	\ieeecsReferences}[1]{%
 	\vspace*{.5em}
 	{\color{cs-blue}
-	\noindent\hdashrule{\textwidth}{1pt}{1pt}}
-	\\\\ 
-	\vspace*{1.5em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize }
-	\vspace*{-2em}
+	\noindent\hdashrule{\textwidth}{1pt}{1pt}
+	}
+	\\
+	\vspace*{.25em}
+	{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize }
+	\vspace*{-1em}
 	
 }
 
@@ -269,12 +269,13 @@
 
 \newcommand{%
 	\ieeecsAboutAuthor}[1]{%
-	\vspace*{1em}
-	{\color{cs-blue}
-	\noindent\hdashrule{\textwidth}{1pt}{1pt}}
-	\\\\ 
-	\vspace*{1.5em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize}
-	\vspace*{-1.5em}
+	\vspace*{.5em}
+	{\color{cs-blue}	
+	\noindent\hdashrule{\textwidth}{1pt}{1pt}
+	}
+	\\	
+	\vspace*{.25em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize}
+	%\vspace*{-1em}
 }
 
 
@@ -287,4 +288,20 @@
 	{\fontfamily{ptm}\textbf{#1} #2}%
 	\vspace*{1em}
 }
+
+
+%========= Custom bibliography without [] around labels ==========
+	
+	\defbibenvironment{bibliography}
+	{\list
+		{\hspace{1em}\printfield[labelnumberwidth]{prefixnumber}\printfield{labelnumber}.}
+		{\setlength{\labelwidth}{\labelnumberwidth}%
+			\setlength{\leftmargin}{\labelwidth}%
+			\setlength{\labelsep}{\biblabelsep}%
+			\addtolength{\leftmargin}{\labelsep}%
+			\setlength{\itemsep}{\bibitemsep}%
+			\setlength{\parsep}{\bibparsep}}%
+		\renewcommand*{\makelabel}[1]{\hss##1}}
+	{\endlist}
+	{\item}
 
