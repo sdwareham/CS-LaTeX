@@ -189,10 +189,18 @@
 %============= Abstract  ==============
 
 %Set the abstract to used a sans-serif font
-
 \newcommand{%
 	\ieeecsAbstract}[1]{%
 	\raggedright\textsf{{\small #1}}
+	\begin{flushleft}
+}
+
+%Command to use if the article has no abstract. Moves intro. paragraphs higher on the page.
+\newcommand{%
+	\ieeecsNoAbstract}{%
+	\textsf{}
+	\vspace*{-2.5em}
+	\begin{flushleft}
 }
 
 %============= New Introduction Section  ==============
@@ -253,6 +261,9 @@
 
 \newcommand{%
 	\ieeecsReferences}[1]{%
+	
+	\end{flushleft}
+	
 	\vspace*{.5em}
 	{\color{cs-blue}
 	\noindent\hdashrule{\textwidth}{1pt}{1pt}
