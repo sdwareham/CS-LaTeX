@@ -1,17 +1,18 @@
 
+%Version of LaTeX required
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{csmagazine}[2017/12/19 IEEE Computer Society magazine LaTeX class]
+\ProvidesClass{csmagazine}[May 10, 2018 IEEE Computer Society magazine LaTeX class]
 
-%Based on article class
+%Based on extarticle class for extended font sizes
 \LoadClass[9pt, letterpaper, twoside]{extarticle}
-
-
 
 %============= Import Required Packages ==============
 
+%set encoding of the output (fonts)
+\usepackage[T5,TS1,T1]{fontenc} %T1 is deafulted. T5 & TS1 are also provided as options. 
 
-%set encoding
+%set encoding of the input (editor)
 \RequirePackage[utf8]{inputenc}
 
 %For math
@@ -21,13 +22,16 @@
 \RequirePackage{comment}
 
 %For References, using BibLaTeX and biber
-\RequirePackage[style=numeric, sorting=none]{biblatex}
+\RequirePackage[style=numeric, citestyle=ieee, sorting=none]{biblatex}
 
 %Selects a font for this document
 \RequirePackage{times}
 
 %Added to import images/place external files as images
 \RequirePackage{graphicx}
+
+%To position figure and tables
+\RequirePackage{float}
 
 %To set custom colors
 \RequirePackage{xcolor}
@@ -145,7 +149,7 @@
 	\Huge
 	\begin{flushleft}
 		{\fontfamily{phv}			
-			\selectfont			
+			\selectfont	
 			\thetitle
 		}
 	\end{flushleft}
@@ -173,6 +177,8 @@
 \end{wrapfigure}%
 } 
 
+
+%======= Author Box Wide (More than 15 authors) =========
 
 
 
@@ -228,33 +234,33 @@
 
 %============= Update Section Titles to use CS blue ==============
 
-\titleformat{\section}{\fontfamily{phv}\selectfont\huge\color{cs-blue}}{}{0pt}{\includegraphics[height=1em]{sectionTitleGraphic.jpg}~}
-\titleformat{\subsection}{\fontfamily{phv}\selectfont\Large\color{cs-blue}}{}{0pt}{}
-\titleformat{\subsubsection}{\fontfamily{phv}\selectfont}{}{0pt}{}
+\titleformat{\section}{\fontfamily{phv}\selectfont\huge\raggedright\color{cs-blue}}{}{0pt}{\includegraphics[height=1em]{sectionTitleGraphic.jpg}~}
+\titleformat{\subsection}{\fontfamily{phv}\selectfont\Large\raggedright\color{cs-blue}}{}{0pt}{}
+\titleformat{\subsubsection}{\fontfamily{phv}\selectfont\raggedright}{}{0pt}{}
 
+
+%store \caption before we re-define it
+\let\savedCaption=\caption
 
 
 %===== Table Titles =============
 
 \newcommand{%
 	\ieeecsTableTitle}[1]{%
-{\color{cs-green}
-	\textbf{	
-	\caption{#1}}}
-\vspace*{1em}
+	{\color{cs-green}
+		\textbf{	
+			\savedCaption{#1}}}
+	\vspace*{1em}
 }
 
 
 %===== Figure Captions =============
 
-\newcommand{%
-	\ieeecsFigureCaption}[1]{%
-	\vspace*{-3em}
+\renewcommand{\caption}[1]{%
 	{\color{cs-blue}
 		\textbf{	
-			\caption{#1}}}		
-		\hdashrule{\textwidth}{1pt}{1pt}
-	\vspace*{1em}
+			\savedCaption{#1}}}		
+	\hdashrule{\textwidth}{1pt}{1pt}
 }
 
 %============= References Header  ==============
@@ -275,6 +281,37 @@
 	
 }
 
+%============= Make citations superscript  ==============
+\newcommand{%
+	\cscite}[1]{
+	\textsuperscript{\cite{#1}}
+}
+
+
+
+%============= Acknowledgements header ==============
+
+\newcommand{%
+	\ieeecsAcknowledgementsHeader}[1]{%
+	\vspace*{.5em}
+	{\color{cs-blue}	
+		\noindent\hdashrule{\textwidth}{1pt}{1pt}
+	}
+	\\	
+	\vspace*{.25em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize}
+}
+
+
+%============= Acknowlegement  ==============
+
+\newcommand{%
+	\ieeecsAcknowlegememt}[1]{%
+	\noindent
+	{\fontfamily{ptm} #1}%
+	\vspace*{1em}
+}
+
+
 
 %============= About the Author  ==============
 
@@ -286,7 +323,6 @@
 	}
 	\\	
 	\vspace*{.25em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize}
-	%\vspace*{-1em}
 }
 
 
@@ -305,7 +341,7 @@
 	
 	\defbibenvironment{bibliography}
 	{\list
-		{\hspace{1em}\printfield[labelnumberwidth]{prefixnumber}\printfield{labelnumber}.}
+		{\printfield[labelnumberwidth]{prefixnumber}\printfield{labelnumber}.}
 		{\setlength{\labelwidth}{\labelnumberwidth}%
 			\setlength{\leftmargin}{\labelwidth}%
 			\setlength{\labelsep}{\biblabelsep}%
@@ -316,3 +352,20 @@
 	{\endlist}
 	{\item}
 
+
+%=========== Macros for creating TeX/LaTeX and related logos ===========
+%==== Thanks to Karl Berry and TUG for proving these macros ===========
+
+\DeclareRobustCommand{\AllTeX}{(La\kern-.075em)\kern-.075em\TeX}
+
+% make \BibTeX work in slanted contexts too; it's common in titles, and
+% especially burdensome to hack in .bib files.
+\def\Bib{%
+	\ifdim \fontdimen1\font>0pt
+	B{\SMC\SMC IB}% \SMC\SMC = two font sizes smaller
+	\else
+	B\textsc{ib}%
+	\fi
+}
+\def\BibLaTeX{\Bib\kern.02em \LaTeX}
+\def\BibTeX{\Bib\kern-.08em \TeX}
