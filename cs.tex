@@ -1,5 +1,5 @@
 
-%% Version 0.3
+%% Version 0.4.3
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -7,13 +7,19 @@
 %%   use with IEEE Computer Society Magazines  %%
 %%   as an alternative to the MS Word          %%
 %%   template.                                 %%
+%%											   %%
+%%   This template can be used for 			   %%
+%%   submission for the following              %%
+%%   publications                              %%
+%%                                             %%
+%%	 Computing in Science & Engineering 	   %%
+%%	 IEEE Annals of the History of Computing   %%
+%%                                             %%
 %%                                             %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \documentclass{csmagazine}
-
-\usepackage{listings}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,10 +85,9 @@
 \begin{document}	
 
 
-\ieeecsPageHeaders{The Title of the Section the Article Belongs To}{TITLE OF THE MAGAZINE}
+\ieeecsPageHeaders{Section Title Goes Here}{MAGAZINE TITLE}
 
 \ieeecsArticleTitle
-
 
 \ieeecsInsertAuthor
 
@@ -95,7 +100,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\ieeecsAbstract{This template (cs.tex) is meant to provide authors of IEEE Computer Society magazine articles a guide to preparing your article in LaTeX for submission, as well as to be used as a starting point that you can edit with the contents of your paper. This is a sample abstract. Abstracts should be single paragraphs that cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please remove this command and instead un-comment the \textbf{\textbackslash{}ieeecsNoAbstract} command to apply the correct formatting. The abstract will appear in a sans-serif font.}
+\ieeecsAbstract{This template (cs.tex) is meant to provide authors of IEEE Computer Society magazine articles a guide to preparing your article in LaTeX for submission, as well as to be used as a starting point that you can edit with the contents of your paper. Only LaTeX papers following this template can be accepted by the IEEE Computer Society. Custom commands and the use of LaTeX packages not appearing in this template are now allowed. Replace this paragraph with your abstract. Abstracts should be a single paragraph and cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please remove this command and instead use the \textbf{\textbackslash{}ieeecsNoAbstract} command to apply the correct formatting. The abstract will appear in a sans-serif font.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -111,7 +116,7 @@
 
 %\ieeecsNoAbstract
 
-
+\begin{flushleft}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -122,45 +127,28 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 Insert your introduction here. Your introduction can be one or more paragraphs and will appear before any main sections. The introduction does not need a section heading and should be no longer than three paragraphs. It may contain math and citations. There is no special command needed for introductions, it can created by paragraphs of text that appear before the first \textbf{\textbackslash{}section command}.
 
 \section{Sections and the Body of the Article}
 
-The body of an article is broken into sections. Up to three section levels are supported using \textbf{\textbackslash{}section\{Title\}}, \textbf{\textbackslash{}subsection\{Title\}}, and \textbf{\textbackslash{}subsubsection\{Title\}}. Avoid "lone" headings, for example, a level-2 head without another level-2 head in the same section. Also avoid "stacked" headings. Two or more consecutive headings must be separated by intervening text (even if it's just a sentence or two).
+The body of an article is broken into sections. Up to three section levels are supported using \textbf{\textbackslash{}section\{Title\}}, \textbf{\textbackslash{}subsection\{Title\}}, and \textbf{\textbackslash{}subsubsection\{Title\}}. Avoid ``lone'' headings, for example, a level-2 head without another level-2 head in the same section. Also avoid ``stacked'' headings. Two or more consecutive headings must be separated by intervening text (even if it's just a sentence or two).
 
 \subsection{Formatting text}
 
-Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbackslash{}textit\{\} command \textit{italic text example}. For bold text please use the \textbackslash{}textbf\{\} command \textbf{bold text example}. For underlined text please use the \textbackslash{}underline\{\} command \underline{underlined text example}.
+Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbackslash{}textit\{\} command. \textit{Italic text example}. For bold text please use the \textbackslash{}textbf\{\} command. \textbf{Bold text example}. For underlined text please use the \textbackslash{}underline\{\} command. \underline{Underlined text example}.
 
 URLs can be created using the \textbackslash{}url\{\} command for example: \url{https://www.computer.org} command.
 
-To enter text that retains formatting, such as program code, please use the verbatim environment.
-
-\begin{verbatim}
-1. Example of using verbatim for writing algorithms
-2. It can also be used for small blocks of code
-3. Text within it can be further styled such as /emph{italic text} 
-...
-4. End.
-\end{verbatim}
-
-
-\begin{lstlisting}[language=PhP]
-$articleBaseName = basename($articleTeXFile, ".tex");
-$articleXMLFile = basename($articleTeXFile, ".tex");
-\end{lstlisting}
-
 \subsubsection{Special characters}
 
-To insert "Special characters" (symbols other than the lowercase letters a–z, uppercase letters A-Z, numbers 0–9, and English punctuation marks) that are not easily created with a single LaTeX command such as \textbackslash{}'\{a\} please use one of the the following options.
+To insert ``Special character'' (symbols other than the lowercase letters a–z, uppercase letters A-Z, numbers 0–9, and English punctuation marks) that are not easily created with a single \LaTeX~ command such as \textbackslash{}'\{a\} please use one of the the following options.
 
-Option 1: Insert the glyph of the character within the \textbf{\textbackslash{}\{fontencoding\{EN\}\textbackslash{}selectfont X\}} command where EN is the encoding to use and X is the glyph to output.
+\textbf{Option 1:} Insert the glyph of the character within the \textbf{\textbackslash{}\{fontencoding\{EN\}\textbackslash{}selectfont X\}} command where EN is the encoding to use and X is the glyph to output.
 
 % example of using \fontencoding to select T5 econding to display the ế character
 %{\fontencoding{T5}\selectfont ế} 
 
-Option 2: Delcare the character with \textbf{\textbackslash{}DeclareUnicodeCharacter\{character code\}\{LaTeX command\}} in the preamble. You can then use that character with your text withou additional commands. Example: ế.
+\textbf{Option 2:} Delcare the character with \textbf{\textbackslash{}DeclareUnicodeCharacter\{character code\}\{\LaTeX~ command\}} in the preamble. You can then use that character with your text without additional commands. Example: ế.
 
 % Commands for common accented characters (the letter x is used for example)
 
@@ -186,7 +174,7 @@ Option 2: Delcare the character with \textbf{\textbackslash{}DeclareUnicodeChara
 
 \subsection{Math}
 
-For numbered display equations, please use the \textbf{equation} environment. For display equations that should not be numbered please use the commands \textbackslash[...\textbackslash]. Please use these commands for display math instead of the double dollar signs `\$\$'.
+For numbered display equations, please use the \textbf{equation} environment. For display equations that should not be numbered please use the commands \textbf{\textbackslash[...\textbackslash]}. Please use these commands for display math instead of the double dollar signs `\$\$'.
 
 \textbf{Example of a numbered display equation:}
 
@@ -211,6 +199,7 @@ For inline math please use the single `\$' symbols. Example of inline math: $\in
 
 %Example of a bulleted list
 \begin{itemize}
+	\itemsep0em 
 	\item First item
 	\item Second item
 	\item Third item
@@ -226,8 +215,6 @@ For inline math please use the single `\$' symbols. Example of inline math: $\in
 \end{enumerate}
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
 %% Sections Begin Here                      %%
@@ -238,11 +225,13 @@ For inline math please use the single `\$' symbols. Example of inline math: $\in
 
 \section{Figures and Tables}
 
-When submitting your paper, please be sure include all graphics reference by your source file. File formats allow for graphics are as follows: \textbf{PDF, PNG, JPEG, \& EPS}.
+When submitting your paper, please be sure include all graphics referenced by your source file. File formats allow for graphics are as follows: \textbf{PDF, PNG, JPEG, \& EPS}.
 
 \subsection{Figures}
 
-Figures should be created as a single graphic per figure. We cannot support multiple graphics as seperate parts of the same figure, or using LaTeX pagackages to draw graphics. Each figure should contain a caption. If you have created a figure as mulitple parts please combine them first as a single graphic before references the graphic from this template.
+Figures should be created as a single graphic per figure. We cannot support multiple graphics as separate parts of the same figure. We also cannot support using \LaTeX packages to draw graphics within your article. Please see the guide ``Converting \LaTeX drawings'' for information on saving your ...
+
+Each figure should contain a caption. If you have created a figure as mulitple parts please combine them first as a single graphic before referencing the graphic from your article. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                               %%
@@ -268,26 +257,24 @@ Figures should be created as a single graphic per figure. We cannot support mult
 	\end{center}
 \end{figure}
 
-
-You can reference a figure using the \textbackslash{}ref\{\}command. Example: see figure \ref{fig:example_fig}. Be sure that the \textbackslash{}label\{\} command is inside of the \textbackslash{}\{\}caption command for for your figure for the numbering to be correct. Below is an example of a second figure, using an EPS file as the graphic.
-
+You can reference a figure using the \textbackslash{}ref\{\}command. Example: see figure \ref{fig:example_fig}. Be sure that the \textbackslash{}label\{\} command is inside of the \textbackslash{}\{\}caption command of your figure for the numbering to be correct. Below is an example of a second figure, using an EPS file as the graphic.
 
 \begin{figure}[H]
 	\begin{center}	
 		\includegraphics[width=0.5\textwidth]{figure_2.eps}
-		\caption{Add your figure caption Here \label{fig:example_fig2}}		
+		\caption{A figure using an EPS graphic \label{fig:example_fig2}}		
 	\end{center}
 \end{figure}
 
 To include graphics in your article that should not be considerd a figure, and should not have a caption or label, please use the \textbackslash{}includegraphics\{\} command.
 
 Example of a graphic that is not a figure:
+
 \includegraphics[width=0.25\textwidth]{graphic_1.png}
 
 \subsection{Tables}
 
-Tables can be created in one of two ways. You can use the tabluar environment to build your table within LaTeX, or you can reference a graphic that you have created outside of LaTeX to represent your table. Tables require a title added using the custom \textbackslash{}ieeecsTableTitle\{\}
-
+Tables can be created by using  the tabluar environment to build your table within \LaTeX. Tables require a title added using the Computer Society command \textbf{\textbackslash{}ieeecsTableTitle\{\}}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -298,7 +285,8 @@ Tables can be created in one of two ways. You can use the tabluar environment to
 
 \begin{table}[H]
 	\begin{center}
-		\ieeecsTableTitle{A table created in LaTeX using tabular}
+		%\ieeecsTableTitle{A table created in \LaTeX~ using tabular}
+		\caption{The table caption}
 		\begin{tabular}{ |c|c|c|c| } 
 			\hline
 			col1 & col2 & col3 \\
@@ -312,20 +300,36 @@ Tables can be created in one of two ways. You can use the tabluar environment to
 \end{table}
 
 
-\begin{table}[H]
-	\begin{center}
-		\ieeecsTableTitle{A table represented by a graphic}
-		\includegraphics[width=0.5\textwidth]{table_2.png}
-	\end{center}
-\end{table}
+\section{Distinct Article Elements}
 
-\section{Other Article Elements}
+\subsection{Algorithms}
 
-\subsection{Boxed Text}
+Algoritms can be added by using lstlisting environment. Alogorithms will have a thin frame around them and will be set in a monospace font. Algorithms require a caption and a label. Algorithms may contain math by ...
 
-\fbox{\begin{minipage}{\textwidth - 3em}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.
-\end{minipage}}
+\pagebreak
+
+%LaTeX can be added in between the characters (%* and %*)
+\begin{lstlisting}[caption={Add a caption for your algorithm here}, captionpos=b, label=Algorithm1, frame=single]
+1. Example of using lstlisting for writing algorithms
+2. It can also be used for complex algoritms
+3. (%*$\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.%*)
+...
+4. End. 
+\end{lstlisting}
+
+See \ref{Algorithm1}.
+
+\subsection{Program Code}
+
+Program code should be added using the lslisting environment. You can pass the language type as an optional parameter to properly style the code. Program code will not have a frame around it and will not have a caption.
+
+Sample block of code formatted as PHP:
+
+\begin{lstlisting}[language=PhP]
+$articleBaseName = basename($articleTeXFile, ".tex");
+$articleXMLFile = basename($articleTeXFile, ".tex");
+\end{lstlisting}
+
 
 \subsection{Theorems}
 
@@ -335,65 +339,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac just
 
 ...
 
+\subsection{Boxed Text}
 
-\subsection{Program Code}
-
-\lstset{numbers=left, numberstyle=\small, stepnumber=1, numbersep=1em}
-\begin{lstlisting}[language=Python]
-import numpy as np
-
-def incmatrix(genl1,genl2):
-m = len(genl1)
-n = len(genl2)
-M = None #to become the incidence matrix
-VT = np.zeros((n*m,1), int)  #dummy variable
-
-#compute the bitwise xor matrix
-M1 = bitxormatrix(genl1)
-M2 = np.triu(bitxormatrix(genl2),1) 
-
-for i in range(m-1):
-for j in range(i+1, m):
-[r,c] = np.where(M2 == M1[i,j])
-for k in range(len(r)):
-VT[(i)*n + r[k]] = 1;
-VT[(i)*n + c[k]] = 1;
-VT[(j)*n + r[k]] = 1;
-VT[(j)*n + c[k]] = 1;
-
-if M is None:
-M = np.copy(VT)
-else:
-M = np.concatenate((M, VT), 1)
-
-VT = np.zeros((n*m,1), int)
-
-return M
-\end{lstlisting}
-
-
-
-\subsection{Text between two rules}
-
-\noindent\rule{\textwidth}{1pt}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-\noindent\rule{\textwidth}{1pt}
-
-
+\ieeecsBoxedText{The ieeecsBoxed text environment can be used to set apart text ...}
 
 
 \subsection{Logos}
 
-\AllTeX ~ \BibLaTeX
+\AllTeX ~ \BibLaTeX ~ \XeLaTeX ~ \LaTeX 
 
 \section{References, Acknowledgements, and Author Bios}
 
-Here is an example of using a citation \cscite{Lamport1994a}.
+A .bib file is required for your referecnes. You can create this using standard BiBTeX reference Types and Fields or \BibLaTeX~types and fields. We will be using \BibLaTeX~ to complie your paper. Please use \textbackslash{}cscite{} to add citations to your paper. Examples \cscite{Lamport1994a} and \cscite{Goossens1997}.
 
-Another citation \cscite{Goossens1997}.
-
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt. Fusce quis tellus ex. Ut mattis leo risus. Sed auctor magna id purus sodales dictum in non elit. Aliquam maximus egestas libero in porta. Suspendisse ultricies massa quis sem pellentesque, eu aliquet elit gravida. Ut sagittis eu quam iaculis mattis.
 
 
 
@@ -437,5 +395,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac just
 
 \ieeecsAuthorBio{Author Name Here}{Author Bio Goes here.}
 
-
+\end{flushleft}
 \end{document}

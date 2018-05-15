@@ -2,7 +2,7 @@
 %Version of LaTeX required
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{csmagazine}[May 10, 2018 IEEE Computer Society magazine LaTeX class]
+\ProvidesClass{csmagazine}[May 15, 2018 IEEE Computer Society magazine LaTeX class]
 
 %Based on extarticle class for extended font sizes
 \LoadClass[9pt, letterpaper, twoside]{extarticle}
@@ -20,6 +20,9 @@
 
 %allow multi-line comments
 \RequirePackage{comment}
+
+%To customize figure/table/algorithm captions
+\RequirePackage{caption}
 
 %For References, using BibLaTeX and biber
 \RequirePackage[style=numeric, citestyle=ieee, sorting=none]{biblatex}
@@ -58,6 +61,9 @@
 %To control the page headers
 \RequirePackage{fancyhdr}
 
+%For code blocks and algorithms
+\RequirePackage{listings}
+
 %To add a dashed rule under figure captions
 \RequirePackage{dashrule}
 
@@ -78,6 +84,13 @@
 
 %Define the green used for table titles
 \definecolor{cs-green}{RGB}{57,130,73}
+
+
+%============= Algorithms ==============
+
+%Change default caption of 'Listing' to 'Algorithm'
+\renewcommand{\lstlistingname}{Algorithm}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}% List of Listings -> List of Algorithms
 
 
 %============= Page Setup (Margins, leading, and text width) ==============
@@ -109,6 +122,8 @@
 %set spacing between paragraphs
 \setlength{\parskip}{1em}
 
+%Set lists style for lslistings environments
+\lstset{basicstyle=\ttfamily,breaklines=true, escapeinside={(\%*}{\%*)},}
 
 %============= First Page Header Graphic / Running page headers ==============
 
@@ -198,15 +213,13 @@
 \newcommand{%
 	\ieeecsAbstract}[1]{%
 	\raggedright\textsf{{\small #1}}
-	\begin{flushleft}
 }
 
 %Command to use if the article has no abstract. Moves intro. paragraphs higher on the page.
 \newcommand{%
 	\ieeecsNoAbstract}{%
 	\textsf{}
-	\vspace*{-2.5em}
-	\begin{flushleft}
+	\vspace*{-2.5em}	
 }
 
 %============= New Introduction Section  ==============
@@ -239,36 +252,68 @@
 \titleformat{\subsubsection}{\fontfamily{phv}\selectfont\raggedright}{}{0pt}{}
 
 
+%============= Custom captions ==============
+
 %store \caption before we re-define it
-\let\savedCaption=\caption
+%\let\savedCaption=\caption
 
 
 %===== Table Titles =============
 
-\newcommand{%
-	\ieeecsTableTitle}[1]{%
-	{\color{cs-green}
-		\textbf{	
-			\savedCaption{#1}}}
-	\vspace*{1em}
-}
+%\newcommand{%
+%	\ieeecsTableTitle}[1]{%
+%	{\color{cs-green}
+%		\textbf{	
+%			\savedCaption{#1}}}
+%	\vspace*{1em}
+%}
 
 
 %===== Figure Captions =============
 
-\renewcommand{\caption}[1]{%
-	{\color{cs-blue}
-		\textbf{	
-			\savedCaption{#1}}}		
-	\hdashrule{\textwidth}{1pt}{1pt}
+%\renewcommand{\caption}[1]{%
+%	{\color{cs-blue}
+%		\textbf{	
+%			\savedCaption{#1}}}		
+%	\hdashrule{\textwidth}{1pt}{1pt}
+%}
+
+%Setup Algorithm captions
+\DeclareCaptionFormat{myAlgorithmCapformat}{%
+	\vspace{1em}
+	
+	{\fontfamily{phv}\selectfont{\color{cs-blue}#1#2#3}}
+	\noindent\hdashrule{\textwidth}{1pt}{1pt}
+} 
+\captionsetup[lstlisting]{format=myAlgorithmCapformat}
+
+%Setup figure captions
+\DeclareCaptionFormat{myFigureCapformat}{%
+	{\fontfamily{phv}\selectfont{\color{cs-blue}#1#2#3}}
+	\noindent\hdashrule{\textwidth}{1pt}{1pt}
+} 
+\captionsetup[figure]{format=myFigureCapformat}
+
+%Setup table captions
+\DeclareCaptionFormat{myTableCapformat}{%
+	{\fontfamily{phv}\selectfont{\color{cs-green}#1#2#3}}
+} 
+\captionsetup[table]{format=myTableCapformat}
+
+
+%===== Boxed Text =============
+
+\newcommand{%
+	\ieeecsBoxedText}[1]{%
+	\setlength{\fboxsep}{1em}
+	\fbox{\parbox{\textwidth - 3em}{#1}}
 }
+
 
 %============= References Header  ==============
 
 \newcommand{%
 	\ieeecsReferences}[1]{%
-	
-	\end{flushleft}
 	
 	\vspace*{.5em}
 	{\color{cs-blue}
@@ -354,12 +399,10 @@
 
 
 %=========== Macros for creating TeX/LaTeX and related logos ===========
-%==== Thanks to Karl Berry and TUG for proving these macros ===========
+%=========== Thanks to TUG for proving these macros ====================
 
 \DeclareRobustCommand{\AllTeX}{(La\kern-.075em)\kern-.075em\TeX}
 
-% make \BibTeX work in slanted contexts too; it's common in titles, and
-% especially burdensome to hack in .bib files.
 \def\Bib{%
 	\ifdim \fontdimen1\font>0pt
 	B{\SMC\SMC IB}% \SMC\SMC = two font sizes smaller
@@ -367,5 +410,56 @@
 	B\textsc{ib}%
 	\fi
 }
+
 \def\BibLaTeX{\Bib\kern.02em \LaTeX}
 \def\BibTeX{\Bib\kern-.08em \TeX}
+
+%C++
+\def\Cplusplus{C\plusplus}
+\def\plusplus{\raisebox{.7ex}{$_{++}$}}
+
+%eTeX
+\DeclareRobustCommand{\eTeX}{\ensuremath{\varepsilon}-\kern-.125em\TeX}
+
+%KomaScript
+\DeclareRobustCommand{\KOMAScript}{\textsf{K\kern.05em O\kern.05em%
+		M\kern.05em A\kern.1em-\kern.1em Script}}
+
+%LaTeX	
+\DeclareRobustCommand{\La}%
+{L\kern-.36em
+	{\setbox0\hbox{T}%
+		\vbox to\ht0{\hbox{$\m@th$%
+				\csname S@\f@size\endcsname
+				\fontsize\sf@size\z@
+				\math@fontsfalse\selectfont
+				A}%
+			\vss}%
+}}
+\DeclareRobustCommand{\TeX}{T\kern-.1667em\lower.424ex\hbox{E}\kern-.125emX\@}
+
+%TikZ
+\def\TikZ{Ti{\em k}Z}
+
+%XeTeX
+\def\tubreflect#1{%
+	\@ifundefined{reflectbox}{%
+		\TBerror{A graphics package must be loaded for \string\XeTeX}%
+	}{%
+		\ifdim \fontdimen1\font>0pt
+		\raise 1.75ex \hbox{\kern.1em\rotatebox{180}{#1}}\kern-.1em
+		\else
+		\reflectbox{#1}%
+		\fi
+	}%
+}
+\def\tubhideheight#1{\setbox0=\hbox{#1}\ht0=0pt \dp0=0pt \box0 }
+\def\XekernbeforeE{-.125em}
+\def\XekernafterE{-.1667em}
+\DeclareRobustCommand{\Xe}{\leavevmode
+	\tubhideheight{\hbox{X%
+			\setbox0=\hbox{\TeX}\setbox1=\hbox{E}%
+			\lower\dp0\hbox{\raise\dp1\hbox{\kern\XekernbeforeE\tubreflect{E}}}%
+			\kern\XekernafterE}}}
+\def\XeTeX{\Xe\TeX}
+\def\XeLaTeX{\Xe{\kern.11em \LaTeX}}
