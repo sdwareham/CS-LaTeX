@@ -1,5 +1,5 @@
 
-%% Version 0.4.3
+%% Version 0.4.4
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -135,7 +135,7 @@ The body of an article is broken into sections. Up to three section levels are s
 
 \subsection{Formatting text}
 
-Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbackslash{}textit\{\} command. \textit{Italic text example}. For bold text please use the \textbackslash{}textbf\{\} command. \textbf{Bold text example}. For underlined text please use the \textbackslash{}underline\{\} command. \underline{Underlined text example}.
+Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbackslash{}textit\{\} command. \textit{Italic text example}. For bold text please use the \textbackslash{}textbf\{\} command. \textbf{Bold text example}. To emphasize text, please use the \textbackslash{}emph\{\} command. \emph{epmphazied text exmaple}.
 
 URLs can be created using the \textbackslash{}url\{\} command for example: \url{https://www.computer.org} command.
 
@@ -174,7 +174,7 @@ To insert ``Special character'' (symbols other than the lowercase letters a–z,
 
 \subsection{Math}
 
-For numbered display equations, please use the \textbf{equation} environment. For display equations that should not be numbered please use the commands \textbf{\textbackslash[...\textbackslash]}. Please use these commands for display math instead of the double dollar signs `\$\$'.
+For numbered display equations, please use the \textbf{equation} environment. For display equations that should not be numbered please use can use either \textbf{equation*}  or \textbf{\textbackslash[...\textbackslash]}. Please use these commands for display math instead of the double dollar signs `\$\$'.
 
 \textbf{Example of a numbered display equation:}
 
@@ -185,13 +185,18 @@ x^\frac{2}{k+1}\qquad
 \frac{\partial^2f}{\partial x^2}
 \end{equation}
 
-\textbf{Example of an un-numbered display equation:}
+\textbf{Examples of an un-numbered display equation:}
 
-%Example of an un-numbered display equation. Please use \[...\] instead of $$...$$ for un-numbered display math
+%Examples of an un-numbered display equation. Please use \[...\] instead of $$...$$ for un-numbered display math
 \[\binom{n}{k} =\binom{n-1}{k} + \binom{n-1}{k-1}\]
 
 
-For inline math please use the single `\$' symbols. Example of inline math: $\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.
+\begin{equation*}
+\cos (2\theta) = \cos^2 \theta - \sin^2 \theta
+\end{equation*}
+
+
+For inline math please use the single `\$' symbols. Example: $\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.
 
 \subsection{Lists}
 
@@ -304,7 +309,7 @@ Tables can be created by using  the tabluar environment to build your table with
 
 \subsection{Algorithms}
 
-Algoritms can be added by using lstlisting environment. Alogorithms will have a thin frame around them and will be set in a monospace font. Algorithms require a caption and a label. Algorithms may contain math by ...
+Algoritms can be added by using lstlisting environment. Alogorithms will have a thin frame around them and will be set in a monospace font. Algorithms require a caption and a label. Algorithms may contain math by using \LaTeX~ in between the characters (\%* and \%*).
 
 \pagebreak
 
@@ -316,8 +321,6 @@ Algoritms can be added by using lstlisting environment. Alogorithms will have a 
 ...
 4. End. 
 \end{lstlisting}
-
-See \ref{Algorithm1}.
 
 \subsection{Program Code}
 
@@ -331,14 +334,6 @@ $articleXMLFile = basename($articleTeXFile, ".tex");
 \end{lstlisting}
 
 
-\subsection{Theorems}
-
-...
-
-\subsection{Proofs}
-
-...
-
 \subsection{Boxed Text}
 
 \ieeecsBoxedText{The ieeecsBoxed text environment can be used to set apart text ...}
@@ -346,14 +341,21 @@ $articleXMLFile = basename($articleTeXFile, ".tex");
 
 \subsection{Logos}
 
-\AllTeX ~ \BibLaTeX ~ \XeLaTeX ~ \LaTeX 
+Popular logos related to \LaTeX~ are supported: \AllTeX ~ \BibLaTeX ~ \XeLaTeX ~ \LaTeX.
 
 \section{References, Acknowledgements, and Author Bios}
 
 A .bib file is required for your referecnes. You can create this using standard BiBTeX reference Types and Fields or \BibLaTeX~types and fields. We will be using \BibLaTeX~ to complie your paper. Please use \textbackslash{}cscite{} to add citations to your paper. Examples \cscite{Lamport1994a} and \cscite{Goossens1997}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  Acknowledgments                        %%
+%%                                                         %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\ieeecsAcknowledgementsHeader{Acknowledgements}
 
+\ieeecsAcknowlegememt{Enter an acknowledgement here.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -365,18 +367,6 @@ A .bib file is required for your referecnes. You can create this using standard 
 \ieeecsReferences{REFERENCES}
 
 \printbibliography[heading=none]
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                  Acknowledgments                        %%
-%%                                                         %%
-%%                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\ieeecsAcknowledgementsHeader{Acknowledgements}
-
-\ieeecsAcknowlegememt{Enter an acknowledgement here.}
 
 
 
