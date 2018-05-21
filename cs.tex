@@ -1,5 +1,5 @@
 
-%% Version 0.4.4
+%% Version 0.4.5
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -40,7 +40,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\title{A Guide to Using the IEEE Computer Society LaTeX Template for Magazines.}
+\title{A Guide to Using the IEEE Computer Society LaTeX Template for Magazines}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,7 +100,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\ieeecsAbstract{This template (cs.tex) is meant to provide authors of IEEE Computer Society magazine articles a guide to preparing your article in LaTeX for submission, as well as to be used as a starting point that you can edit with the contents of your paper. Only LaTeX papers following this template can be accepted by the IEEE Computer Society. Custom commands and the use of LaTeX packages not appearing in this template are now allowed. Replace this paragraph with your abstract. Abstracts should be a single paragraph and cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please remove this command and instead use the \textbf{\textbackslash{}ieeecsNoAbstract} command to apply the correct formatting. The abstract will appear in a sans-serif font.}
+\ieeecsAbstract{This template (cs.tex) provides authors of IEEE Computer Society magazine articles with a guide for preparing \LaTeX~ manuscripts for submission and a starting point for editing the contents of these manuscripts. Only \LaTeX~ documents created using this template can be accepted by the IEEE Computer Society. Custom commands and the use of LaTeX packages not appearing in this template are now allowed. Replace this paragraph with your abstract. Abstracts should be a single paragraph and cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please remove this command and instead use the \textbf{\textbackslash{}ieeecsNoAbstract} command to apply the correct formatting. The abstract will appear in a sans-serif font.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -127,7 +127,7 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Insert your introduction here. Your introduction can be one or more paragraphs and will appear before any main sections. The introduction does not need a section heading and should be no longer than three paragraphs. It may contain math and citations. There is no special command needed for introductions, it can created by paragraphs of text that appear before the first \textbf{\textbackslash{}section command}.
+Insert your introduction here, before any main sections. The introduction does not need a section heading and should be no longer than three paragraphs. It may contain math and citations. There is no special command needed for introductions, it can created by paragraphs of text that appear before the first \textbf{\textbackslash{}section command}.
 
 \section{Sections and the Body of the Article}
 
@@ -135,20 +135,20 @@ The body of an article is broken into sections. Up to three section levels are s
 
 \subsection{Formatting text}
 
-Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbackslash{}textit\{\} command. \textit{Italic text example}. For bold text please use the \textbackslash{}textbf\{\} command. \textbf{Bold text example}. To emphasize text, please use the \textbackslash{}emph\{\} command. \emph{epmphazied text exmaple}.
+Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbf{\textbackslash{}textit\{\}} command. \textit{Italic text example}. For bold text please use the \textbf{\textbackslash{}textbf\{\}} command. \textbf{Bold text example}. To emphasize text, please use the \textbf{\textbackslash{}emph\{\}} command. \emph{epmphazied text exmaple}.
 
-URLs can be created using the \textbackslash{}url\{\} command for example: \url{https://www.computer.org} command.
+URLs can be created using the \textbackslash{}url\{\} command, for example: \url{https://www.computer.org} command.
 
 \subsubsection{Special characters}
 
-To insert ``Special character'' (symbols other than the lowercase letters a–z, uppercase letters A-Z, numbers 0–9, and English punctuation marks) that are not easily created with a single \LaTeX~ command such as \textbackslash{}'\{a\} please use one of the the following options.
+To insert a special character(symbols other than the lowercase letters a–z, uppercase letters A-Z, numbers 0–9, and English punctuation marks) that cannot be easily created with a single \LaTeX~ command such as \textbackslash{}'\{a\}, please use one of the following options:
 
-\textbf{Option 1:} Insert the glyph of the character within the \textbf{\textbackslash{}\{fontencoding\{EN\}\textbackslash{}selectfont X\}} command where EN is the encoding to use and X is the glyph to output.
+\textbf{Option 1:} Insert the glyph of the character within the \textbf{\textbackslash{}\{fontencoding\{EN\}\textbackslash{}selectfont X\}} command, where EN is the encoding to use and X is the glyph to output.
 
 % example of using \fontencoding to select T5 econding to display the ế character
 %{\fontencoding{T5}\selectfont ế} 
 
-\textbf{Option 2:} Delcare the character with \textbf{\textbackslash{}DeclareUnicodeCharacter\{character code\}\{\LaTeX~ command\}} in the preamble. You can then use that character with your text without additional commands. Example: ế.
+\textbf{Option 2:} Declare the character with \textbf{\textbackslash{}DeclareUnicodeCharacter\{character code\}\{\LaTeX~ command\}} in the preamble. You can then use that character with your text without additional commands. Example: ế.
 
 % Commands for common accented characters (the letter x is used for example)
 
@@ -174,18 +174,16 @@ To insert ``Special character'' (symbols other than the lowercase letters a–z,
 
 \subsection{Math}
 
-For numbered display equations, please use the \textbf{equation} environment. For display equations that should not be numbered please use can use either \textbf{equation*}  or \textbf{\textbackslash[...\textbackslash]}. Please use these commands for display math instead of the double dollar signs `\$\$'.
+For numbered display equations, please use the \textbf{equation} environment. For display equations that should not be numbered please use either \textbf{equation*}  or \textbf{\textbackslash[...\textbackslash]}. Please use these commands for display math rather than the double dollar signs `\$\$'.
 
-\textbf{Example of a numbered display equation:}
+\textbf{Numbered display equation:}
 
 %Example of a numbered display equation. Please use \begin{equation} for numbered display math
 \begin{equation}
-\sqrt{\frac{x^2}{k+1}}\qquad
-x^\frac{2}{k+1}\qquad
-\frac{\partial^2f}{\partial x^2}
+x^n + y^n = z^n
 \end{equation}
 
-\textbf{Examples of an un-numbered display equation:}
+\textbf{Unnumbered display equations:}
 
 %Examples of an un-numbered display equation. Please use \[...\] instead of $$...$$ for un-numbered display math
 \[\binom{n}{k} =\binom{n-1}{k} + \binom{n-1}{k-1}\]
@@ -196,11 +194,13 @@ x^\frac{2}{k+1}\qquad
 \end{equation*}
 
 
-For inline math please use the single `\$' symbols. Example: $\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.
+For inline math please use the single `\$' symbols. \textbf{Example:} $\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.
+
+\pagebreak
 
 \subsection{Lists}
 
-\textbf{A bulleted list}
+\textbf{Bulleted list}
 
 %Example of a bulleted list
 \begin{itemize}
@@ -211,12 +211,12 @@ For inline math please use the single `\$' symbols. Example: $\int\frac{d\theta}
 	\item Fourth item
 \end{itemize}
 
-\textbf{A Numbered List}
+\textbf{Numbered List}
 
 %Example of a numbred list
 \begin{enumerate}
-	\item The labels consists of sequential numbers.
-	\item The numbers starts at 1 with every call to the enumerate environment.
+	\item The labels consist of sequential numbers.
+	\item The numbers start at 1 with every call to the enumerate environment.
 \end{enumerate}
 
 
@@ -230,13 +230,11 @@ For inline math please use the single `\$' symbols. Example: $\int\frac{d\theta}
 
 \section{Figures and Tables}
 
-When submitting your paper, please be sure include all graphics referenced by your source file. File formats allow for graphics are as follows: \textbf{PDF, PNG, JPEG, \& EPS}.
+When submitting your paper, please include all graphics referenced by your source file. File formats allowed for graphics are: \textbf{PDF, PNG, JPEG, and EPS}.
 
 \subsection{Figures}
 
-Figures should be created as a single graphic per figure. We cannot support multiple graphics as separate parts of the same figure. We also cannot support using \LaTeX packages to draw graphics within your article. Please see the guide ``Converting \LaTeX drawings'' for information on saving your ...
-
-Each figure should contain a caption. If you have created a figure as mulitple parts please combine them first as a single graphic before referencing the graphic from your article. 
+Figures should be created as a single graphic per figure. We cannot support multiple graphics as separate parts of the same figure. We also cannot support the use \LaTeX~ packages to draw graphics within your article. If you have graphics created using a \LaTeX~ drawing package or if you have multiple graphics for a figure, please first using the included graphics.tex file to create a single PDF of your graphic that can then be reference by your article. Each figure requires a caption. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                               %%
@@ -258,20 +256,20 @@ Each figure should contain a caption. If you have created a figure as mulitple p
 \begin{figure}[H]
 	\begin{center}	
 		\includegraphics[width=0.5\textwidth]{figure_1.jpg}
-		\caption{Add your figure caption Here \label{fig:example_fig}}		
+		\caption{Add your figure caption here \label{fig:example_fig}}		
 	\end{center}
 \end{figure}
 
-You can reference a figure using the \textbackslash{}ref\{\}command. Example: see figure \ref{fig:example_fig}. Be sure that the \textbackslash{}label\{\} command is inside of the \textbackslash{}\{\}caption command of your figure for the numbering to be correct. Below is an example of a second figure, using an EPS file as the graphic.
+You can reference a figure using the \textbf{\textbackslash{}ref\{\}}command. \textbf{Example:} see figure \ref{fig:example_fig}. To ensure accurate numbering of figures, place the \textbf{\textbackslash{}label\{\}} command inside the \textbackslash{}\{\}caption command of your figure. Below is an example of a second figure, using an EPS file as the graphic.
 
 \begin{figure}[H]
 	\begin{center}	
 		\includegraphics[width=0.5\textwidth]{figure_2.eps}
-		\caption{A figure using an EPS graphic \label{fig:example_fig2}}		
+		\caption{A figure using an EPS graphic. \label{fig:example_fig2}}		
 	\end{center}
 \end{figure}
 
-To include graphics in your article that should not be considerd a figure, and should not have a caption or label, please use the \textbackslash{}includegraphics\{\} command.
+To include graphics that should not be considerd figures, and should not have a caption or label, please use the \textbf{\textbackslash{}includegraphics\{\}} command.
 
 Example of a graphic that is not a figure:
 
@@ -279,7 +277,7 @@ Example of a graphic that is not a figure:
 
 \subsection{Tables}
 
-Tables can be created by using  the tabluar environment to build your table within \LaTeX. Tables require a title added using the Computer Society command \textbf{\textbackslash{}ieeecsTableTitle\{\}}.
+Use the tabluar environment to build your table within \LaTeX. Tables require a title, added using the \textbf{\textbackslash{}caption\{\}} command.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -291,7 +289,7 @@ Tables can be created by using  the tabluar environment to build your table with
 \begin{table}[H]
 	\begin{center}
 		%\ieeecsTableTitle{A table created in \LaTeX~ using tabular}
-		\caption{The table caption}
+		\caption{The table title goes here.}
 		\begin{tabular}{ |c|c|c|c| } 
 			\hline
 			col1 & col2 & col3 \\
@@ -309,13 +307,13 @@ Tables can be created by using  the tabluar environment to build your table with
 
 \subsection{Algorithms}
 
-Algoritms can be added by using lstlisting environment. Alogorithms will have a thin frame around them and will be set in a monospace font. Algorithms require a caption and a label. Algorithms may contain math by using \LaTeX~ in between the characters (\%* and \%*).
+Algorithms can be added by using lstlisting environment. Alogorithms will have a thin frame around them and will be set in a monospace font. Algorithms require a caption and a label. Math can be added to algorithms using \LaTeX~ between the characters (\%* and \%*).
 
 \pagebreak
 
 %LaTeX can be added in between the characters (%* and %*)
-\begin{lstlisting}[caption={Add a caption for your algorithm here}, captionpos=b, label=Algorithm1, frame=single]
-1. Example of using lstlisting for writing algorithms
+\begin{lstlisting}[caption={Add a caption for your algorithm here.}, captionpos=b, label=Algorithm1, frame=single]
+1. Example of using lstlisting to write algorithms
 2. It can also be used for complex algoritms
 3. (%*$\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.%*)
 ...
@@ -345,7 +343,7 @@ Popular logos related to \LaTeX~ are supported: \AllTeX ~ \BibLaTeX ~ \XeLaTeX ~
 
 \section{References, Acknowledgements, and Author Bios}
 
-A .bib file is required for your referecnes. You can create this using standard BiBTeX reference Types and Fields or \BibLaTeX~types and fields. We will be using \BibLaTeX~ to complie your paper. Please use \textbackslash{}cscite{} to add citations to your paper. Examples \cscite{Lamport1994a} and \cscite{Goossens1997}.
+A .bib file is required for your references, and can be created using standard BiBTeX reference Types and Fields or \BibLaTeX~types and fields. We will be using \BibLaTeX~ to complie your paper. Please use \textbf{\textbackslash{}cscite{}} to add citations to your paper. Examples \cscite{Lamport1994a} and \cscite{Goossens1997}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  Acknowledgments                        %%
@@ -353,9 +351,11 @@ A .bib file is required for your referecnes. You can create this using standard 
 %%                                                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ieeecsAcknowledgementsHeader{Acknowledgements}
+\ieeecsAcknowledgmentsHeader{Acknowledgments}
 
-\ieeecsAcknowlegememt{Enter an acknowledgement here.}
+\ieeecsAcknowlegmemt{Enter an acknowledgment here.}
+
+\pagebreak
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -379,11 +379,10 @@ A .bib file is required for your referecnes. You can create this using standard 
 
 \ieeecsAboutAuthor{ABOUT THE AUTHORS}
 
-\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit ceonsectetur tincidunt.}
+\ieeecsAuthorBio{Author First and Last Name}{is a [title or position] at [institution]. His/her research interests include [list here]. [Author last name] received a [highest degree] in [field of study] from [school]. Contact him/her at [preferred email address].}
 
-\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut neque ac justo blandit commodo nec aliquam metus. Ut blandit consectetur tincidunt.}
+\ieeecsAuthorBio{Author First and Last Name}{is a [title or position] at [institution]. His/her research interests include [list here]. [Author last name] received a [highest degree] in [field of study] from [school]. Contact him/her at [preferred email address].}
 
-\ieeecsAuthorBio{Author Name Here}{Author Bio Goes here.}
 
 \end{flushleft}
 \end{document}

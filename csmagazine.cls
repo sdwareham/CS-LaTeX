@@ -334,10 +334,10 @@
 
 
 
-%============= Acknowledgements header ==============
+%============= Acknowledgments header ==============
 
 \newcommand{%
-	\ieeecsAcknowledgementsHeader}[1]{%
+	\ieeecsAcknowledgmentsHeader}[1]{%
 	\vspace*{.5em}
 	{\color{cs-blue}	
 		\noindent\hdashrule{\textwidth}{1pt}{1pt}
@@ -347,10 +347,10 @@
 }
 
 
-%============= Acknowlegement  ==============
+%============= Acknowlegment  ==============
 
 \newcommand{%
-	\ieeecsAcknowlegememt}[1]{%
+	\ieeecsAcknowlegmemt}[1]{%
 	\noindent
 	{\fontfamily{ptm} #1}%
 	\vspace*{1em}
