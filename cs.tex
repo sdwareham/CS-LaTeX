@@ -1,5 +1,5 @@
 
-%% Version 0.4.5
+%% Version 0.4.6
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -24,9 +24,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%OPTIONAL: Declare unicode characters that are not easily created by single LaTeX commands
+%OPTIONAL: Declare Unicode characters that are not easily created by single LaTeX commands
 
-%Example of delcaring a special character to use later in the document
+%Example of declaring a special character to use later in the document
 \DeclareUnicodeCharacter{1EBF}{\'{\^{e}}}
 
 
@@ -312,7 +312,7 @@ Algorithms can be added by using lstlisting environment. Alogorithms will have a
 \pagebreak
 
 %LaTeX can be added in between the characters (%* and %*)
-\begin{lstlisting}[caption={Add a caption for your algorithm here.}, captionpos=b, label=Algorithm1, frame=single]
+\begin{lstlisting}[caption={Add a caption for your algorithm here.}, label=Algorithm1]
 1. Example of using lstlisting to write algorithms
 2. It can also be used for complex algoritms
 3. (%*$\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.%*)
@@ -322,14 +322,14 @@ Algorithms can be added by using lstlisting environment. Alogorithms will have a
 
 \subsection{Program Code}
 
-Program code should be added using the lslisting environment. You can pass the language type as an optional parameter to properly style the code. Program code will not have a frame around it and will not have a caption.
+Program code should be added using the programCode environment. You can pass the language type as an optional parameter to properly style the code. Program code will not have a frame around it and will not have a caption.
 
 Sample block of code formatted as PHP:
 
-\begin{lstlisting}[language=PhP]
+\begin{programCode}[language=PhP]
 $articleBaseName = basename($articleTeXFile, ".tex");
 $articleXMLFile = basename($articleTeXFile, ".tex");
-\end{lstlisting}
+\end{programCode}
 
 
 \subsection{Boxed Text}

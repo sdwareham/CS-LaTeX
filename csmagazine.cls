@@ -92,6 +92,10 @@
 \renewcommand{\lstlistingname}{Algorithm}% Listing -> Algorithm
 \renewcommand{\lstlistlistingname}{List of \lstlistingname s}% List of Listings -> List of Algorithms
 
+\lstset{frame=single} %set listings/algorithms to have a single line frame
+\lstset{captionpos=b} %set listings/algorithms to have captions beneath
+\lstnewenvironment{programCode}{\lstset{frame=none}}{} %create new program code env. without frames
+
 
 %============= Page Setup (Margins, leading, and text width) ==============
 
@@ -253,30 +257,6 @@
 
 
 %============= Custom captions ==============
-
-%store \caption before we re-define it
-%\let\savedCaption=\caption
-
-
-%===== Table Titles =============
-
-%\newcommand{%
-%	\ieeecsTableTitle}[1]{%
-%	{\color{cs-green}
-%		\textbf{	
-%			\savedCaption{#1}}}
-%	\vspace*{1em}
-%}
-
-
-%===== Figure Captions =============
-
-%\renewcommand{\caption}[1]{%
-%	{\color{cs-blue}
-%		\textbf{	
-%			\savedCaption{#1}}}		
-%	\hdashrule{\textwidth}{1pt}{1pt}
-%}
 
 %Setup Algorithm captions
 \DeclareCaptionFormat{myAlgorithmCapformat}{%
