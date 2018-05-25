@@ -94,7 +94,8 @@
 
 \lstset{frame=single} %set listings/algorithms to have a single line frame
 \lstset{captionpos=b} %set listings/algorithms to have captions beneath
-\lstnewenvironment{programCode}{\lstset{frame=none}}{} %create new program code env. without frames
+\lstnewenvironment{programCode}{
+	\lstset{frame=none}}{} %create new program code env. without frames
 
 
 %============= Page Setup (Margins, leading, and text width) ==============
@@ -325,6 +326,22 @@
 	\\	
 	\vspace*{.25em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize}
 }
+
+
+%============= Portraits ==============
+
+\newcommand{%
+	\ieeecsPortrait}[3]{%
+	\begin{minipage}{0.9\textwidth}		
+		\begin{wrapfigure}{l}{0.25\textwidth}%
+			\vspace{-1.25em}
+			\includegraphics[width=#2]{#1}
+		\end{wrapfigure}			
+		#3 
+	\end{minipage}
+}
+
+
 
 
 %============= Acknowlegment  ==============
