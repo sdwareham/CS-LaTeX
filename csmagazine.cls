@@ -73,6 +73,12 @@
 %Changes scaling of \Huge
 \RequirePackage[12pt]{moresize}
 
+%Char­ac­ter pro­tru­sion and font ex­pan­sion, fur­ther­more the ad­just­ment of in­ter­word spac­ing and ad­di­tional kern­ing, as well as hy­phen­at­able let­terspac­ing
+\RequirePackage{microtype}
+
+%Used for logos (METAFONT and METAPOST)
+\RequirePackage{hologo}
+
 
 %============= Colors ==============
 
@@ -142,7 +148,7 @@
 	
 	%Add the header image
 	\begin{figure}
-		\centering
+		%\centering
 		\vspace*{-1.1in}
 		\noindent\makebox[\textwidth]{\includegraphics[width=9in]{articleHeader.png}}		
 	\end{figure}%
@@ -151,7 +157,7 @@
 	\vspace*{-1in}
 	{\fontfamily{phv}\fontsize{10pt}{15pt}
 		\selectfont
-		\noindent\hspace{-1.5em}\fcolorbox{cs-grey}{cs-grey}{\makebox[\textwidth][l]{\color{white}#1}}
+		\noindent\hspace{-1.5em}\fcolorbox{cs-grey}{cs-grey}{\makebox[\textwidth + .75in][l]{\color{white}#1}}
 	}
 	\vspace*{.5in}
 	
@@ -439,9 +445,9 @@
 \def\TikZ{Ti{\em k}Z}
 
 %XeTeX
-\def\tubreflect#1{%
+\def\ieeecsreflect#1{%
 	\@ifundefined{reflectbox}{%
-		\TBerror{A graphics package must be loaded for \string\XeTeX}%
+		\errmessage{A graphics package must be loaded for \string\XeTeX}%
 	}{%
 		\ifdim \fontdimen1\font>0pt
 		\raise 1.75ex \hbox{\kern.1em\rotatebox{180}{#1}}\kern-.1em
@@ -450,13 +456,13 @@
 		\fi
 	}%
 }
-\def\tubhideheight#1{\setbox0=\hbox{#1}\ht0=0pt \dp0=0pt \box0 }
+\def\ieeecshideheight#1{\setbox0=\hbox{#1}\ht0=0pt \dp0=0pt \box0 }
 \def\XekernbeforeE{-.125em}
 \def\XekernafterE{-.1667em}
 \DeclareRobustCommand{\Xe}{\leavevmode
-	\tubhideheight{\hbox{X%
+	\ieeecshideheight{\hbox{X%
 			\setbox0=\hbox{\TeX}\setbox1=\hbox{E}%
-			\lower\dp0\hbox{\raise\dp1\hbox{\kern\XekernbeforeE\tubreflect{E}}}%
+			\lower\dp0\hbox{\raise\dp1\hbox{\kern\XekernbeforeE\ieeecsreflect{E}}}%
 			\kern\XekernafterE}}}
 \def\XeTeX{\Xe\TeX}
 \def\XeLaTeX{\Xe{\kern.11em \LaTeX}}

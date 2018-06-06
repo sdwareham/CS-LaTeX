@@ -1,5 +1,5 @@
 
-%% Version 0.4.6
+%% Version 0.4.7
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -93,6 +93,7 @@
 \ieeecsInsertAuthor
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
 %% The abstract goes here                   %%
@@ -122,8 +123,7 @@
 %%                                          %%
 %% The introduction starts below            %%
 %% You may have several intro. 				%%
-%% paragraphs each using the 				%%
-%% \ieeecsIntroduction command              %%
+%% paragraphs.                              %%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -137,7 +137,7 @@ The body of an article is broken into sections. Up to three section levels are s
 
 \subsection{Formatting text}
 
-Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbf{\textbackslash{}textit\{\}} command. \textit{Italic text example}. For bold text please use the \textbf{\textbackslash{}textbf\{\}} command. \textbf{Bold text example}. To emphasize text, please use the \textbf{\textbackslash{}emph\{\}} command. \emph{epmphazied text exmaple}.
+Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbf{\textbackslash{}textit\{\}} command. \textit{Italic text example}. For bold text please use the \textbf{\textbackslash{}textbf\{\}} command. \textbf{Bold text example}. To emphasize text, please use the \textbf{\textbackslash{}emph\{\}} command. \emph{emphasized text example}.
 
 URLs can be created using the \textbackslash{}url\{\} command, for example: \url{https://www.computer.org} command.
 
@@ -236,7 +236,7 @@ When submitting your paper, please include all graphics referenced by your sourc
 
 \subsection{Figures}
 
-Figures should be created as a single graphic per figure. We cannot support multiple graphics as separate parts of the same figure. We also cannot support the use \LaTeX~ packages to draw graphics within your article. If you have graphics created using a \LaTeX~ drawing package or if you have multiple graphics for a figure, please first using the included graphics.tex file to create a single PDF of your graphic that can then be reference by your article. Each figure requires a caption. 
+Figures should be created as a single graphic per figure. We cannot support multiple graphics as separate parts of the same figure. We also cannot support the use \LaTeX~ packages to draw graphics within your article. If you have graphics created using a \LaTeX~ drawing package or if you have multiple graphics for a figure, please first using the included figure.tex file to create a single PDF of your graphic that can then be reference by your article. Each figure requires a caption. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                               %%
@@ -279,10 +279,10 @@ You can reference a figure using the \textbf{\textbackslash{}ref\{\}}command. \t
 
 \subsection{Portraits}
 
-If your paper contains portraits of contributors, roundtable panelists, or interviewees where the portrait should be presented next to a brief bio or statement, please use the \textbf{wrapfigure} enviroment. The portraits should align to the left with the bio wrapping around it on the right.
+If your paper contains portraits of contributors, roundtable panelists, or interviewees where the portrait should be presented next to a brief bio or statement, please use the \textbf{ieeecsPortrait} enviroment. The portraits should align to the left with the bio wrapping around it on the right.
 
 %{the name of your graphic}{the width of the graphic}{the text to wrap around the graphic}
-\ieeecsPortrait{portrait}{0.25\textwidth}{The bio of the \textbf{contributor} should go here. This could also be a statement.}
+\ieeecsPortrait{portrait}{0.25\textwidth}{The bio of the contributor should go here. This could also be a statement.}
 
 %\vspace is used here since we have a very short bio and we want to make sure the next section starts after the portrait.
 \vspace{6em}
@@ -356,11 +356,11 @@ $articleXMLFile = basename($articleTeXFile, ".tex");
 
 \subsection{Logos}
 
-Popular logos related to \LaTeX~ are supported: \AllTeX ~ \BibLaTeX ~ \XeLaTeX ~ \LaTeX.
+Popular logos related to \LaTeX~ are supported: \AllTeX, ~ \BibLaTeX, ~ \XeLaTeX, ~ \hologo{METAPOST}, and \hologo{METAFONT}.
 
 \section{References, Acknowledgements, and Author Bios}
 
-A .bib file is required for your references, and can be created using standard BiBTeX reference Types and Fields or \BibLaTeX~types and fields. We will be using \BibLaTeX~ to complie your paper. Please use \textbf{\textbackslash{}cscite{}} to add citations to your paper. Examples \cscite{Lamport1994a} and \cscite{Goossens1997}.
+A .bib file is required for your references, and can be created using standard BiBTeX reference Types and Fields or \BibLaTeX~types and fields. We will be using \BibLaTeX~ to complie your paper. Please use \textbf{\textbackslash{}cscite{}} to add citations to your paper. Examples \cscite{Lamport1994a} and \cscite{Goossens1997}. Please do not include footnotes or endnotes in your paper.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  Acknowledgments                        %%

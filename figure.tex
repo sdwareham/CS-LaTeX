@@ -1,0 +1,34 @@
+\documentclass[varwidth, border=1pt]{standalone}
+
+%Used for tables with multi-row cells
+\usepackage{multirow}
+
+\usepackage{subcaption}
+\usepackage[labelformat=parens,labelsep=quad,skip=2pt]{caption}
+\usepackage{graphicx}
+
+\begin{document}
+		
+	\begin{figure}	
+		\begin{subfigure}{6cm}
+			\centering\includegraphics[width=2cm]{figure_part.jpg}
+			\captionsetup{justification=centering}
+			\caption{Caption A}
+		\end{subfigure}	
+		\begin{subfigure}{6cm}
+			\centering\includegraphics[width=2cm]{figure_part.jpg}
+			\captionsetup{justification=centering}
+			\caption{Caption B}
+		\end{subfigure}		
+		\begin{subfigure}{6cm}
+			\centering\includegraphics[width=2cm]{figure_part.jpg}
+			\captionsetup{justification=centering}
+			\caption{Caption C}
+		\end{subfigure}	
+		\begin{subfigure}{6cm}
+			\centering\includegraphics[width=2cm]{figure_part.jpg}
+			\captionsetup{justification=centering}
+			\caption{Caption D}
+		\end{subfigure}	
+	\end{figure}	
+\end{document}
