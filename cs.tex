@@ -1,5 +1,5 @@
 
-%% Version 0.4.7
+%% Version 0.4.9
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -16,11 +16,14 @@
 %%	 IEEE Annals of the History of Computing   %%
 %%                                             %%
 %%                                             %%
+%% 											   %%
+%%	Custom commands not already defined 	   %%
+%%	in this template are not supported.        %%
+%%                                             %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \documentclass{csmagazine}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,7 +83,9 @@
 
 
 %include your bib file here
-\addbibresource{refs.bib}
+%\addbibresource{refs.bib}
+%\bibliography{refs.bib}
+
 
 
 \begin{document}	
@@ -117,7 +122,6 @@
 
 %\ieeecsNoAbstract
 
-%\begin{flushleft}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -351,7 +355,10 @@ $articleXMLFile = basename($articleTeXFile, ".tex");
 
 \subsection{Boxed Text}
 
-\ieeecsBoxedText{The ieeecsBoxed text environment can be used to set apart text ...}
+%\ieeecsBoxedText{The ieeecsBoxed text environment can be used to set apart text ...}
+
+\begin{ieeecsBoxedText}{The \textbf{ieeecsBoxedText} environment can be used to set apart text. Please pass the content of the boxed text as a parameter to this environment.}
+\end{ieeecsBoxedText}
 
 
 \subsection{Logos}
@@ -362,15 +369,19 @@ Popular logos related to \LaTeX~ are supported: \AllTeX, ~ \BibLaTeX, ~ \XeLaTeX
 
 A .bib file is required for your references, and can be created using standard BiBTeX reference Types and Fields or \BibLaTeX~types and fields. We will be using \BibLaTeX~ to complie your paper. Please use \textbf{\textbackslash{}cscite{}} to add citations to your paper. Examples \cscite{Lamport1994a} and \cscite{Goossens1997}. Please do not include footnotes or endnotes in your paper.
 
+%BibTeX Citation\cite{einstein}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  Acknowledgments                        %%
 %%                                                         %%
 %%                                                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ieeecsAcknowledgmentsHeader{Acknowledgments}
+\ieeecsAcknowledgmentsHeader{ACKNOWLEDGEMENTS}
 
-\ieeecsAcknowlegmemt{Enter an acknowledgment here.}
+\begin{ieeeCSAcknowledgment}
+Enter an acknowledgment here, within the \textbf{ieeeCSAcknowledgment} environment.
+\end{ieeeCSAcknowledgment}	
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,9 +392,8 @@ A .bib file is required for your references, and can be created using standard B
 
 \ieeecsReferences{REFERENCES}
 
-\printbibliography[heading=none]
-
-
+\bibliographystyle{ieeeCSBib}
+\bibliography{refs.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  Author Bios                            %%
@@ -394,10 +404,14 @@ A .bib file is required for your references, and can be created using standard B
 
 \ieeecsAboutAuthor{ABOUT THE AUTHORS}
 
-\ieeecsAuthorBio{Author First and Last Name}{is a [title or position] at [institution]. His/her research interests include [list here]. [Author last name] received a [highest degree] in [field of study] from [school]. Contact him/her at [preferred email address].}
 
-\ieeecsAuthorBio{Author First and Last Name}{is a [title or position] at [institution]. His/her research interests include [list here]. [Author last name] received a [highest degree] in [field of study] from [school]. Contact him/her at [preferred email address].}
+\begin{ieeeCSAuthorBio}
+\textbf{Author First and Last Name} is a [title or position] at [institution]. His/her research interests include [list here]. [Author last name] received a [highest degree] in [field of study] from [school]. Contact him/her at [preferred email address].
+\end{ieeeCSAuthorBio}
+
+\begin{ieeeCSAuthorBio}
+	\textbf{Author First and Last Name} is a [title or position] at [institution]. His/her research interests include [list here]. [Author last name] received a [highest degree] in [field of study] from [school]. Contact him/her at [preferred email address].
+\end{ieeeCSAuthorBio}
 
 
-%\end{flushleft}
 \end{document}

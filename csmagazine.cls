@@ -25,7 +25,10 @@
 \RequirePackage{caption}
 
 %For References, using BibLaTeX and biber
-\RequirePackage[style=numeric, citestyle=ieee, sorting=none]{biblatex}
+%\RequirePackage[style=numeric, citestyle=ieee, sorting=none]{biblatex}
+
+%Using BibTeX and natbib to style citations and references
+\RequirePackage[round, sort, numbers]{natbib}
 
 %Selects a font for this document
 \RequirePackage{times}
@@ -79,6 +82,7 @@
 %Used for logos (METAFONT and METAPOST)
 \RequirePackage{hologo}
 
+\RequirePackage{url}
 
 %============= Colors ==============
 
@@ -135,6 +139,8 @@
 
 %Set lists style for lslistings environments
 \lstset{basicstyle=\ttfamily,breaklines=true, escapeinside={(\%*}{\%*)},}
+
+
 
 %============= First Page Header Graphic / Running page headers ==============
 
@@ -290,11 +296,14 @@
 
 %===== Boxed Text =============
 
-\newcommand{%
-	\ieeecsBoxedText}[1]{%
-	\setlength{\fboxsep}{1em}
-	\fbox{\parbox{\textwidth - 3em}{#1}}
-}
+%\newcommand{%
+%	\ieeecsBoxedText}[1]{%
+%	\setlength{\fboxsep}{1em}
+%	\fbox{\parbox{\textwidth - 3em}{#1}}
+%}
+
+\newenvironment{ieeecsBoxedText}[1]
+{\setlength{\fboxsep}{1em}\fbox{\parbox{\textwidth - 3em}{#1}}}{}
 
 
 %============= References Header  ==============
@@ -310,6 +319,11 @@
 	\vspace*{.25em}
 	{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize }
 	\vspace*{-1em}
+	
+	%to remove references title created by bibtex
+	\renewcommand{\refname}{\textsc{}}
+	\titleformat{\section}{}{}{}{}
+	\vspace*{-4em}
 	
 }
 
@@ -347,18 +361,10 @@
 	\end{minipage}
 }
 
+%============= Acknowlegment Environment  ==============
 
-
-
-%============= Acknowlegment  ==============
-
-\newcommand{%
-	\ieeecsAcknowlegmemt}[1]{%
-	\noindent
-	{\fontfamily{ptm} #1}%
-	\vspace*{1em}
-}
-
+\newenvironment{ieeeCSAcknowledgment}
+{\noindent}{\vspace*{1em}}
 
 
 %============= About the Author  ==============
@@ -377,29 +383,35 @@
 
 %============= Author Bios ==============
 
-\newcommand{%
-	\ieeecsAuthorBio}[2]{%
-	\noindent
-	{\fontfamily{ptm}\textbf{#1} #2}%
-	\vspace*{1em}
-}
+%\newcommand{%
+%	\ieeecsAuthorBio}[2]{%
+%	\noindent
+%	{\fontfamily{ptm}\textbf{#1} #2}%
+%	\vspace*{1em}
+%}
+
+\newenvironment{ieeeCSAuthorBio}
+{\noindent}{\vspace*{1em}}
 
 
 %========= Custom bibliography without [] around labels ==========
 	
-	\defbibenvironment{bibliography}
-	{\list
-		{\printfield[labelnumberwidth]{prefixnumber}\printfield{labelnumber}.}
-		{\setlength{\labelwidth}{\labelnumberwidth}%
-			\setlength{\leftmargin}{\labelwidth}%
-			\setlength{\labelsep}{\biblabelsep}%
-			\addtolength{\leftmargin}{\labelsep}%
-			\setlength{\itemsep}{\bibitemsep}%
-			\setlength{\parsep}{\bibparsep}}%
-		\renewcommand*{\makelabel}[1]{\hss##1}}
-	{\endlist}
-	{\item}
+%	\defbibenvironment{bibliography}
+%	{\list
+%		{\printfield[labelnumberwidth]{prefixnumber}\printfield{labelnumber}.}
+%		{\setlength{\labelwidth}{\labelnumberwidth}%
+%			\setlength{\leftmargin}{\labelwidth}%
+%			\setlength{\labelsep}{\biblabelsep}%
+%			\addtolength{\leftmargin}{\labelsep}%
+%			\setlength{\itemsep}{\bibitemsep}%
+%			\setlength{\parsep}{\bibparsep}}%
+%		\renewcommand*{\makelabel}[1]{\hss##1}}
+%	{\endlist}
+%	{\item}
 
+
+%============= Change style of reference numbers ==============
+\renewcommand\@biblabel[1]{#1.}
 
 %=========== Macros for creating TeX/LaTeX and related logos ===========
 %=========== Thanks to TUG for proving these macros ====================
