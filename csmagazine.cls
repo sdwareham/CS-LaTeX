@@ -28,7 +28,7 @@
 %\RequirePackage[style=numeric, citestyle=ieee, sorting=none]{biblatex}
 
 %Using BibTeX and natbib to style citations and references
-\RequirePackage[round, sort, numbers]{natbib}
+\RequirePackage[sort, numbers, super]{natbib}
 
 %Selects a font for this document
 \RequirePackage{times}
@@ -328,10 +328,10 @@
 }
 
 %============= Make citations superscript  ==============
-\newcommand{%
-	\cscite}[1]{
-	\textsuperscript{\cite{#1}}
-}
+%\newcommand{%
+%	\cscite}[1]{
+%	\textsuperscript{\citealt{#1}}
+%}
 
 
 

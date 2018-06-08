@@ -1,5 +1,5 @@
 
-%% Version 0.4.9
+%% Version 0.5
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -367,9 +367,8 @@ Popular logos related to \LaTeX~ are supported: \AllTeX, ~ \BibLaTeX, ~ \XeLaTeX
 
 \section{References, Acknowledgements, and Author Bios}
 
-A .bib file is required for your references, and can be created using standard BiBTeX reference Types and Fields or \BibLaTeX~types and fields. We will be using \BibLaTeX~ to complie your paper. Please use \textbf{\textbackslash{}cscite{}} to add citations to your paper. Examples \cscite{Lamport1994a} and \cscite{Goossens1997}. Please do not include footnotes or endnotes in your paper.
+A .bib file is required for your references. We will be using \BibTeX~ to compile the references of your paper. Please use \textbf{\textbackslash{}citep{}} to add citations to your paper. Examples \citep{Lamport1994a} and \citep{Goossens1997}. Please do not include footnotes or endnotes in your paper. \citep{Lamport1994a, Goossens1997}
 
-%BibTeX Citation\cite{einstein}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  Acknowledgments                        %%
@@ -392,7 +391,10 @@ Enter an acknowledgment here, within the \textbf{ieeeCSAcknowledgment} environme
 
 \ieeecsReferences{REFERENCES}
 
+%Usage of the ieeeCSBib reference style file is required
 \bibliographystyle{ieeeCSBib}
+
+%change refs.bib to the name of your .bib file
 \bibliography{refs.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
