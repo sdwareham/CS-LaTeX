@@ -365,6 +365,9 @@ $articleXMLFile = basename($articleTeXFile, ".tex");
 
 Popular logos related to \LaTeX~ are supported: \AllTeX, ~ \BibLaTeX, ~ \XeLaTeX, ~ \hologo{METAPOST}, and \hologo{METAFONT}.
 
+%The command \ieeecsNonDisplayingText notes is provided as an option to include notes in your paper that will not be displayed. Pass text to both commands. This command will not display anything in the output.
+\ieeecsNonDisplayingText{label}{Text} 
+
 \section{References, Acknowledgements, and Author Bios}
 
 A .bib file is required for your references. We will be using \BibTeX~ to compile the references of your paper. Please use \textbf{\textbackslash{}citep{}} to add citations to your paper. Examples \citep{Lamport1994a} and \citep{Goossens1997}. Please do not include footnotes or endnotes in your paper. \citep{Lamport1994a, Goossens1997}

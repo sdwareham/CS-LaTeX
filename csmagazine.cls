@@ -296,12 +296,6 @@
 
 %===== Boxed Text =============
 
-%\newcommand{%
-%	\ieeecsBoxedText}[1]{%
-%	\setlength{\fboxsep}{1em}
-%	\fbox{\parbox{\textwidth - 3em}{#1}}
-%}
-
 \newenvironment{ieeecsBoxedText}[1]
 {\setlength{\fboxsep}{1em}\fbox{\parbox{\textwidth - 3em}{#1}}}{}
 
@@ -326,13 +320,6 @@
 	\vspace*{-4em}
 	
 }
-
-%============= Make citations superscript  ==============
-%\newcommand{%
-%	\cscite}[1]{
-%	\textsuperscript{\citealt{#1}}
-%}
-
 
 
 %============= Acknowledgments header ==============
@@ -383,35 +370,22 @@
 
 %============= Author Bios ==============
 
-%\newcommand{%
-%	\ieeecsAuthorBio}[2]{%
-%	\noindent
-%	{\fontfamily{ptm}\textbf{#1} #2}%
-%	\vspace*{1em}
-%}
-
 \newenvironment{ieeecsAuthorBio}
 {\noindent}{\vspace*{1em}}
 
 
-%========= Custom bibliography without [] around labels ==========
-	
-%	\defbibenvironment{bibliography}
-%	{\list
-%		{\printfield[labelnumberwidth]{prefixnumber}\printfield{labelnumber}.}
-%		{\setlength{\labelwidth}{\labelnumberwidth}%
-%			\setlength{\leftmargin}{\labelwidth}%
-%			\setlength{\labelsep}{\biblabelsep}%
-%			\addtolength{\leftmargin}{\labelsep}%
-%			\setlength{\itemsep}{\bibitemsep}%
-%			\setlength{\parsep}{\bibparsep}}%
-%		\renewcommand*{\makelabel}[1]{\hss##1}}
-%	{\endlist}
-%	{\item}
+%============= Option notes that will not be displayed ==============
+
+\newcommand{%
+	\ieeecsNonDisplayingText}[2]{}
+
 
 
 %============= Change style of reference numbers ==============
 \renewcommand\@biblabel[1]{#1.}
+
+
+
 
 %=========== Macros for creating TeX/LaTeX and related logos ===========
 %=========== Thanks to TUG for proving these macros ====================
