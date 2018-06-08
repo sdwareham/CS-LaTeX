@@ -363,7 +363,7 @@
 
 %============= Acknowlegment Environment  ==============
 
-\newenvironment{ieeeCSAcknowledgment}
+\newenvironment{ieeecsAcknowledgment}
 {\noindent}{\vspace*{1em}}
 
 
@@ -390,7 +390,7 @@
 %	\vspace*{1em}
 %}
 
-\newenvironment{ieeeCSAuthorBio}
+\newenvironment{ieeecsAuthorBio}
 {\noindent}{\vspace*{1em}}
 
 
