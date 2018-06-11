@@ -76,7 +76,7 @@
 %Changes scaling of \Huge
 \RequirePackage[12pt]{moresize}
 
-%Char­ac­ter pro­tru­sion and font ex­pan­sion, fur­ther­more the ad­just­ment of in­ter­word spac­ing and ad­di­tional kern­ing, as well as hy­phen­at­able let­terspac­ing
+
 \RequirePackage{microtype}
 
 %Used for logos (METAFONT and METAPOST)
@@ -229,7 +229,7 @@
 %Set the abstract to used a sans-serif font
 \newcommand{%
 	\ieeecsAbstract}[1]{%
-	\raggedright\textsf{{\small #1}}
+\textsf{{\small #1}}
 }
 
 %Command to use if the article has no abstract. Moves intro. paragraphs higher on the page.

@@ -44,7 +44,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\title{A Guide to Using the IEEE Computer Society LaTeX Template for Magazines}
+\title{A Guide to Using the IEEE Computer Society \LaTeX\ Template for Magazines}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,11 +82,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%include your bib file here
-%\addbibresource{refs.bib}
-%\bibliography{refs.bib}
-
-
 
 \begin{document}	
 
@@ -97,7 +92,8 @@
 
 \ieeecsInsertAuthor
 
-
+%Computer Society style is ragged right for entire article
+\raggedright
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -147,7 +143,7 @@ URLs can be created using the \textbackslash{}url\{\} command, for example: \url
 
 \subsubsection{Special characters}
 
-To insert a special character(symbols other than the lowercase letters a–z, uppercase letters A-Z, numbers 0–9, and English punctuation marks) that cannot be easily created with a single \LaTeX~ command such as \textbackslash{}'\{a\}, please use one of the following options:
+To insert a special character(symbols other than the lowercase letters a–z, uppercase letters A-Z, numbers 0-9, and English punctuation marks) that cannot be easily created with a single \LaTeX~ command such as \textbackslash{}'\{a\}, please use one of the following options:
 
 \textbf{Option 1:} Insert the glyph of the character within the \textbf{\textbackslash{}\{fontencoding\{EN\}\textbackslash{}selectfont X\}} command, where EN is the encoding to use and X is the glyph to output.
 
