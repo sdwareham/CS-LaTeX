@@ -76,7 +76,7 @@
 %Changes scaling of \Huge
 \RequirePackage[12pt]{moresize}
 
-
+%Character protrusion and font expansion, furthermore the adjustment of interword spacing and additional kerning, as well as hyphenatable letterspacing
 \RequirePackage{microtype}
 
 %Used for logos (METAFONT and METAPOST)
@@ -390,7 +390,7 @@
 %=========== Macros for creating TeX/LaTeX and related logos ===========
 %=========== Thanks to TUG for proving these macros ====================
 
-\DeclareRobustCommand{\AllTeX}{(La\kern-.075em)\kern-.075em\TeX}
+\DeclareRobustCommand{\AllTeX}{(\La\kern-.075em)\kern-.075em\TeX}
 
 \def\Bib{%
 	\ifdim \fontdimen1\font>0pt
