@@ -387,8 +387,8 @@
 
 
 
-%=========== Macros for creating TeX/LaTeX and related logos ===========
-%=========== Thanks to TUG for proving these macros ====================
+%=========== Macros for creating logos related to TeX ===========
+%=========== Thanks to TUG for providing these macros ====================
 
 \DeclareRobustCommand{\AllTeX}{(\La\kern-.075em)\kern-.075em\TeX}
 
