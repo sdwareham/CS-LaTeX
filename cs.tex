@@ -1,5 +1,5 @@
 
-%% Version 0.5.1
+%% Version 0.6
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -15,24 +15,27 @@
 %%	 Computing in Science & Engineering 	   %%
 %%	 IEEE Annals of the History of Computing   %%
 %%                                             %%
-%%                                             %%
 %% 											   %%
 %%	Custom commands not already defined 	   %%
-%%	in this template are not supported.        %%
+%%	in this template are not supported!        %%
 %%                                             %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Class Options
+%
+% hasAbstract: Paper contains an abstract.
+% noAbstract: Paper does not contain an abstract.
+% authorBox: Standard treatment of author names.
+% wideAuthorBox: Used only when there are many authors.
 
-\documentclass{csmagazine}
+\documentclass[hasAbstract,authorBox]{csmagazine}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %OPTIONAL: Declare Unicode characters that are not easily created by single LaTeX commands
 
-%Example of declaring a special character to use later in the document
 \DeclareUnicodeCharacter{1EBF}{\'{\^{e}}}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -62,10 +65,15 @@
 
 \author{%
 	First Author\\ \ieeecsAffiliation{First Author Affiliation}\\
-	Second Author\\	\ieeecsnoAffiliation
+	Second Author \ieeecsnoAffiliation\\
 	Third Author\\ \ieeecsAffiliation{Third Author Affiliation}\\ 
 }
 
+
+\begin{document}
+
+%Computer Society style is ragged right for entire article
+\raggedright
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -82,41 +90,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-\begin{document}	
-
-
 \ieeecsPageHeaders{Section Title Goes Here}{MAGAZINE TITLE}
 
 \ieeecsArticleTitle
 
 \ieeecsInsertAuthor
 
-%Computer Society style is ragged right for entire article
-\raggedright
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                          %%
-%% The abstract goes here                   %%
-%%                                          %%
-%%                                          %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\ieeecsAbstract{This template (cs.tex) provides authors of IEEE Computer Society magazine articles with a guide for preparing \LaTeX~ manuscripts for submission and a starting point for editing the contents of these manuscripts. Only \LaTeX~ documents created using this template can be accepted by the IEEE Computer Society. Custom commands and the use of LaTeX packages not appearing in this template are now allowed. Replace this paragraph with your abstract. Abstracts should be a single paragraph and cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please remove this command and instead use the \textbf{\textbackslash{}ieeecsNoAbstract} command to apply the correct formatting. The abstract will appear in a sans-serif font.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                          %%
+%%    										%%
+%%	Add your abstract below.                %%
 %%											%%
-%% If your paper has no abstract, remove    %%
-%% the \ieeecsAbstract command above and    %%
-%% un-comment the \ieeecsNoAbstract command	%%
-%% below.									%%
+%%  If your paper has no abstract, leave    %%
+%%	the \ieeecsAbstract{} command empty     %%
+%%	and change the csmagazine class option  %%
+%%	from hasAbstract to noAbstract 			%%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%\ieeecsNoAbstract
+\ieeecsAbstract{This template (cs.tex) provides authors of IEEE Computer Society magazine articles with a guide for preparing \LaTeX~ manuscripts for submission and a starting point for editing the contents of these manuscripts. Only \LaTeX~ documents created using this template can be accepted by the IEEE Computer Society. Custom commands and the use of \LaTeX\ packages not appearing in this template are not allowed. Please use this template to format your paper by replacing it's contents with that of your won. Replace this paragraph with your abstract. Abstracts should be a single paragraph and cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please remove this command and instead use the \textbf{\textbackslash{}ieeecsNoAbstract} command to apply the correct formatting. The abstract will appear in a sans-serif font.}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,7 +122,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
 Insert your introduction here, before any main sections. The introduction does not need a section heading and should be no longer than three paragraphs. It may contain math and citations. There is no special command needed for introductions, it can created by paragraphs of text that appear before the first \textbf{\textbackslash{}section command}.
 
 \section{Sections and the Body of the Article}
@@ -137,7 +130,7 @@ The body of an article is broken into sections. Up to three section levels are s
 
 \subsection{Formatting text}
 
-Simple paragraphs can be entered without any additional LaTeX commands. For italic text please use the \textbf{\textbackslash{}textit\{\}} command. \textit{Italic text example}. For bold text please use the \textbf{\textbackslash{}textbf\{\}} command. \textbf{Bold text example}. To emphasize text, please use the \textbf{\textbackslash{}emph\{\}} command. \emph{emphasized text example}.
+Simple paragraphs can be entered without any additional \LaTeX\ commands. For italic text please use the \textbf{\textbackslash{}textit\{\}} command. \textit{Italic text example}. For bold text please use the \textbf{\textbackslash{}textbf\{\}} command. \textbf{Bold text example}. To emphasize text, please use the \textbf{\textbackslash{}emph\{\}} command. \emph{emphasized text example}.
 
 URLs can be created using the \textbackslash{}url\{\} command, for example: \url{https://www.computer.org} command.
 
@@ -150,7 +143,7 @@ To insert a special character(symbols other than the lowercase letters a–z, up
 % example of using \fontencoding to select T5 econding to display the ế character
 %{\fontencoding{T5}\selectfont ế} 
 
-\textbf{Option 2:} Declare the character with \textbf{\textbackslash{}DeclareUnicodeCharacter\{character code\}\{\LaTeX~ command\}} in the preamble. You can then use that character with your text without additional commands. Example: ế.
+\textbf{Option 2:} Declare the character with \textbf{\textbackslash{}DeclareUnicodeCharacter\{character code\}\{\LaTeX\ command\}} in the preamble. You can then use that character with your text without additional commands. Example: ế.
 
 % Commands for common accented characters (the letter x is used for example)
 
@@ -236,7 +229,7 @@ When submitting your paper, please include all graphics referenced by your sourc
 
 \subsection{Figures}
 
-Figures should be created as a single graphic per figure. We cannot support multiple graphics as separate parts of the same figure. We also cannot support the use \LaTeX~ packages to draw graphics within your article. If you have graphics created using a \LaTeX~ drawing package or if you have multiple graphics for a figure, please first using the included figure.tex file to create a single PDF of your graphic that can then be reference by your article. Each figure requires a caption. 
+Figures should be created as a single graphic per figure. We cannot support multiple graphics as separate parts of the same figure. We also cannot support the use \LaTeX~ packages to draw graphics within your article. If you have graphics created using a \LaTeX~ drawing package or if you have multiple graphics for a figure, please first use the included figure.tex file to create a single PDF of your graphic that can then be reference by your article. Each figure requires a caption. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                               %%
@@ -282,15 +275,15 @@ You can reference a figure using the \textbf{\textbackslash{}ref\{\}}command. \t
 If your paper contains portraits of contributors, roundtable panelists, or interviewees where the portrait should be presented next to a brief bio or statement, please use the \textbf{ieeecsPortrait} enviroment. The portraits should align to the left with the bio wrapping around it on the right.
 
 %{the name of your graphic}{the width of the graphic}{the text to wrap around the graphic}
-\ieeecsPortrait{portrait}{0.25\textwidth}{The bio of the contributor should go here. This could also be a statement.}
+\ieeecsPortrait{portrait.png}{0.25\textwidth}{The bio of the contributor should go here. This could also be a statement.}
 
 %\vspace is used here since we have a very short bio and we want to make sure the next section starts after the portrait.
-\vspace{6em}
+\vspace{7em}
 
 
 \subsection{Tables}
 
-Use the tabluar environment to build your table within \LaTeX. Tables require a title, added using the \textbf{\textbackslash{}caption\{\}} command.
+Use the tabluar environment to build your table within \LaTeX. Tables require a title, added using the \textbf{\textbackslash{}caption\{\}} command. Tables are to be used to represent text in a tabular environment. Tables that are created as a graphic or contain graphics should instead use the figure environment.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -301,7 +294,6 @@ Use the tabluar environment to build your table within \LaTeX. Tables require a 
 
 \begin{table}[H]
 	\begin{center}
-		%\ieeecsTableTitle{A table created in \LaTeX~ using tabular}
 		\caption{The table title goes here.}
 		\begin{tabular}{ |c|c|c|c| } 
 			\hline
@@ -323,17 +315,15 @@ Use the tabluar environment to build your table within \LaTeX. Tables require a 
 
 \subsection{Algorithms}
 
-Algorithms can be added by using lstlisting environment. Alogorithms will have a thin frame around them and will be set in a monospace font. Algorithms require a caption and a label. Math can be added to algorithms using \LaTeX~ between the characters (\%* and \%*).
-
+Algorithms can be added by using lstlisting environment. Algorithms will have a thin frame around them and will be set in a monospace font. Algorithms require a caption and a label. Math can be added to algorithms using \LaTeX\ between the characters (\%* and \%*).
 
 
 %LaTeX can be added in between the characters (%* and %*)
 \begin{lstlisting}[caption={Add a caption for your algorithm here.}, label=Algorithm1]
 1. Example of using lstlisting to write algorithms
-2. It can also be used for complex algoritms
-3. (%*$\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.%*)
+2. (%*$\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.%*)
 ...
-4. End. 
+10. End
 \end{lstlisting}
 
 \subsection{Program Code}
@@ -359,14 +349,14 @@ $articleXMLFile = basename($articleTeXFile, ".tex");
 
 \subsection{Logos}
 
-Popular logos related to \LaTeX~ are supported: \AllTeX, ~ \BibLaTeX, ~ \XeLaTeX, ~ \hologo{METAPOST}, and \hologo{METAFONT}.
+Popular logos related to \LaTeX~ are supported: \AllTeX\ \BibLaTeX\ \XeLaTeX\ \hologo{METAPOST}, and \hologo{METAFONT}.
 
 %The command \ieeecsNonDisplayingText notes is provided as an option to include notes in your paper that will not be displayed. Pass text to both commands. This command will not display anything in the output.
 \ieeecsNonDisplayingText{label}{Text} 
 
 \section{References, Acknowledgements, and Author Bios}
 
-A .bib file is required for your references. We will be using \BibTeX~ to compile the references of your paper. Please use \textbf{\textbackslash{}citep{}} to add citations to your paper. Examples \citep{Lamport1994a} and \citep{Goossens1997}. Please do not include footnotes or endnotes in your paper. \citep{Lamport1994a, Goossens1997}
+A .bib file is required for your references. We will be using \BibTeX\ to compile the references of your paper. Please use \textbf{\textbackslash{}citep{}} to add citations to your paper. Examples \citep{Lamport1994a} and \citep{Goossens1997}. Please do not include footnotes or endnotes in your paper. \citep{Lamport1994a, Goossens1997}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -2,10 +2,75 @@
 %Version of LaTeX required
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{csmagazine}[May 15, 2018 IEEE Computer Society magazine LaTeX class]
+\ProvidesClass{csmagazine}[June 15, 2018. IEEE Computer Society magazine LaTeX class]
 
 %Based on extarticle class for extended font sizes
 \LoadClass[9pt, letterpaper, twoside]{extarticle}
+
+
+%============= Define Class Options ==============
+
+%Abstract options
+
+%hasAbstract Option: Define \ieeecsAbstract to contain text
+\DeclareOption{hasAbstract}{\newcommand{%
+		\ieeecsAbstract}[1]{%
+		\textsf{{\small #1}}
+}}
+
+%noAbstract Option: Define \ieeecsAbstract to be empty
+\DeclareOption{noAbstract}{\newcommand{%
+		\ieeecsAbstract}{%
+		\textsf{}
+		\vspace*{-2em}	
+}}
+
+
+%Author box options
+
+%authorBox: Standard box for authors, 40% width on left of abstract
+\DeclareOption{authorBox}{%
+\newcommand{%
+	\ieeecsInsertAuthor}{%
+	\begin{wrapfigure}{l}{0.45\textwidth}
+		\begin{minipage}[t]{0.4\textwidth}
+			\begin{mdframed}[leftmargin=1cm,
+				skipabove=-2cm,    
+				linecolor=blue,
+				backgroundcolor=gray!15,
+				linewidth=0pt,
+				innerrightmargin=1em,
+				innertopmargin=1em,
+				innerbottommargin=.25em,
+				]
+				\textbf{\theauthor}	
+			\end{mdframed}
+		\end{minipage}
+	\end{wrapfigure}
+}
+}
+
+%wideAuthorBox: Wide box for when there are many authors, full width
+\DeclareOption{wideAuthorBox}{%	
+	\newcommand{%
+	\ieeecsInsertAuthor}{%
+	\begin{mdframed}[leftmargin=1cm,
+		skipabove=0cm,    
+		%linecolor=blue,
+		backgroundcolor=gray!15,
+		linewidth=0pt,
+		innerrightmargin=1em,
+		innertopmargin=.75em,
+		innerbottommargin=.75em,
+		]
+		\textbf{\theauthor}	
+	\end{mdframed}
+	}
+}
+
+\ProcessOptions\relax
+
+
 
 %============= Import Required Packages ==============
 
@@ -23,9 +88,6 @@
 
 %To customize figure/table/algorithm captions
 \RequirePackage{caption}
-
-%For References, using BibLaTeX and biber
-%\RequirePackage[style=numeric, citestyle=ieee, sorting=none]{biblatex}
 
 %Using BibTeX and natbib to style citations and references
 \RequirePackage[sort, numbers, super]{natbib}
@@ -82,7 +144,13 @@
 %Used for logos (METAFONT and METAPOST)
 \RequirePackage{hologo}
 
+%Format URLs
 \RequirePackage{url}
+
+%Use for author box
+\RequirePackage{mdframed}
+
+\RequirePackage{anyfontsize}
 
 %============= Colors ==============
 
@@ -192,56 +260,7 @@
 }
 
 
-%============= Author Box ==============
-
-\newcommand{%
-\ieeecsInsertAuthor}{%
-\begin{wrapfigure}{l}{0.45\textwidth}
-	\fcolorbox{gray!15}{gray!15}{%
-		\begin{minipage}[t]{0.4\textwidth}
-			\begin{flushleft}			
-				\vspace*{.5em}
-				\small 
-				\textbf{\theauthor}
-				\normalsize
-			\end{flushleft}
-	\end{minipage}}%
-\end{wrapfigure}%
-} 
-
-
-%======= Author Box Wide (More than 15 authors) =========
-
-
-
-
-%============= Introduction Section (unused)  ==============
-
-\newcommand{%
-	\ieeecsStartIntro}{%
-\color{cs-blue}	
-\section*{} %An asterisk is used here to suppress adding a section number	
-\color{black}\
-}
-
-%============= Abstract  ==============
-
-%Set the abstract to used a sans-serif font
-\newcommand{%
-	\ieeecsAbstract}[1]{%
-\textsf{{\small #1}}
-}
-
-%Command to use if the article has no abstract. Moves intro. paragraphs higher on the page.
-\newcommand{%
-	\ieeecsNoAbstract}{%
-	\textsf{}
-	\vspace*{-2.5em}	
-}
-
-%============= New Introduction Section  ==============
-
-%The Introduction
+%============= Introduction Section  ==============
 
 \newcommand{%
 	\ieeecsIntroduction}[1]{%
@@ -268,6 +287,9 @@
 \titleformat{\subsection}{\fontfamily{phv}\selectfont\Large\raggedright\color{cs-blue}}{}{0pt}{}
 \titleformat{\subsubsection}{\fontfamily{phv}\selectfont\raggedright}{}{0pt}{}
 
+%Define spacing around titles %{left spacing}{before spacing}{after spacing}[right]
+\titlespacing\subsection{0pt}{10pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{6pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 %============= Custom captions ==============
 
