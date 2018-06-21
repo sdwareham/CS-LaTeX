@@ -15,7 +15,7 @@
 %hasAbstract Option: Define \ieeecsAbstract to contain text
 \DeclareOption{hasAbstract}{\newcommand{%
 		\ieeecsAbstract}[1]{%
-		\textsf{{\small #1}}
+		\noindent\textsf{{\small #1}}
 }}
 
 %noAbstract Option: Define \ieeecsAbstract to be empty
