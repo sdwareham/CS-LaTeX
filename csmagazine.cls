@@ -152,6 +152,9 @@
 
 \RequirePackage{anyfontsize}
 
+%For ragged right formatting
+\RequirePackage{ragged2e}
+
 %============= Colors ==============
 
 %Define the blue used in our template
