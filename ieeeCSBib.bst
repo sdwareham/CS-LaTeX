@@ -439,7 +439,8 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{f.~}{vv~}{ll}{, jj}"
+      %"{f.~}{vv~}{ll}{, jj}"
+      "{f{.}.~}{vv~}{ll}{, jj}"
       format.name$
       bibinfo bibinfo.check
       't :=
@@ -1047,9 +1048,9 @@ FUNCTION {article}
       "journal" bibinfo.check
       emphasize
       "journal" output.check
+      format.vol.num.pages output
       format.date "year" output.check
       date.block
-      format.vol.num.pages output
     }
     { format.article.crossref output.nonnull
     }

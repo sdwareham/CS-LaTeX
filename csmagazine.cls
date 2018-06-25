@@ -396,8 +396,8 @@
 %============= Author Bios ==============
 
 \newenvironment{ieeecsAuthorBio}
-{\noindent}{\vspace*{1em}}
-
+%{\noindent}{\vspace*{1em}}
+{\par\noindent\ignorespaces}{\vspace*{1em}}
 
 %============= Option notes that will not be displayed ==============
 

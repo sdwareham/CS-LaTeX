@@ -1,5 +1,5 @@
 
-%% Version 0.6.3
+%% Version 0.6.4
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -15,7 +15,6 @@
 %%	 Computing in Science & Engineering 	   %%
 %%	 IEEE Annals of the History of Computing   %%
 %%                                             %%
-%% 											   %%
 %%	Custom commands not already defined 	   %%
 %%	in this template are not supported!        %%
 %%                                             %%
@@ -71,8 +70,6 @@
 
 \begin{document}
 
-%Computer Society style is ragged right for entire article
-\RaggedRight 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,15 +105,19 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%Computer Society style is \raggedright for the abstract
+\raggedright
 
-\ieeecsAbstract{This template (cs.tex) provides authors of IEEE Computer Society magazine articles with a guide for preparing \LaTeX~ manuscripts for submission and a starting point for editing the contents of these manuscripts. Only \LaTeX~ documents created using this template can be accepted by the IEEE Computer Society. Custom commands and the use of \LaTeX\ packages not appearing in this template are not allowed. Please use this template to format your paper by replacing it's contents with that of your won. Replace this paragraph with your abstract. Abstracts should be a single paragraph and cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please remove this command and instead use the \textbf{\textbackslash{}ieeecsNoAbstract} command to apply the correct formatting. The abstract will appear in a sans-serif font.}
+\ieeecsAbstract{This template (cs.tex) provides authors of IEEE Computer Society magazine articles with a guide for preparing \LaTeX~ manuscripts for submission and a starting point for editing the contents of these manuscripts. Only \LaTeX~ documents created using this template can be accepted by the IEEE Computer Society. Custom commands and the use of \LaTeX\ packages not appearing in this template are not allowed. Please use this template to format your paper by replacing it's contents with that of your won. Replace this paragraph with your abstract. Abstracts should be a single paragraph and cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please be sure to pass the \textbf{noAbstract} option to the csmagazine class. The abstract will appear in a sans-serif font.}
 
+%Computer Society style is \RaggedRight for the article body
+\RaggedRight 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
 %% The introduction starts below            %%
-%% You may have several intro. 				%%
+%% You may have several introduction		%%
 %% paragraphs.                              %%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
