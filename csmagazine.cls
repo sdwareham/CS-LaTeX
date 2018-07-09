@@ -144,6 +144,9 @@
 %Used for logos (METAFONT and METAPOST)
 \RequirePackage{hologo}
 
+%Use for symbol characters
+\RequirePackage{latexsym}
+
 %Format URLs
 \RequirePackage{url}
 
