@@ -43,7 +43,7 @@
 				innertopmargin=1em,
 				innerbottommargin=.25em,
 				]
-				\textbf{\theauthor}	
+				\begin{flushleft}\textbf{\theauthor}\end{flushleft}	
 			\end{mdframed}
 		\end{minipage}
 	\end{wrapfigure}
