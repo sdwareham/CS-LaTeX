@@ -1,5 +1,5 @@
 
-%% Version 0.6.4
+%% Version 0.6.5
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -295,7 +295,7 @@ Use the tabluar environment to build your table within \LaTeX. Tables require a 
 
 \begin{table}[H]
 	\begin{center}
-		\caption{The table title goes here.}
+		\caption{The table title goes here.\label{tab:example_tab}}
 		\begin{tabular}{ |c|c|c|c| } 
 			\hline
 			col1 & col2 & col3 \\
@@ -308,8 +308,10 @@ Use the tabluar environment to build your table within \LaTeX. Tables require a 
 	\end{center}
 \end{table}
 
-\pagebreak
+\ieeecsTableFootnote{*If the table has a footnote add it after the table with the \textbf{ieeecsTableFootnote} command.}
 
+\pagebreak
+%\newnew page or \clearpage may be used to start a new page
 
 
 \section{Distinct Article Elements}
@@ -372,6 +374,7 @@ A .bib file is required for your references. We will be using \BibTeX\ to compil
 Enter an acknowledgment here, within the \textbf{ieeeCSAcknowledgment} environment.
 \end{ieeecsAcknowledgment}	
 
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%

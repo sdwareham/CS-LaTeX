@@ -71,7 +71,6 @@
 \ProcessOptions\relax
 
 
-
 %============= Import Required Packages ==============
 
 %set encoding of the output (fonts)
@@ -120,8 +119,8 @@
 %Remove 'Abstract' title from abstract
 \RequirePackage{abstract}
 
-%Adjust the color used in section titles
-\RequirePackage{titlesec}
+%Adjust the formating used in section titles
+\RequirePackage[explicit]{titlesec}
 
 %To control the page headers
 \RequirePackage{fancyhdr}
@@ -288,10 +287,9 @@
 
 
 %============= Update Section Titles to use CS blue ==============
-
-\titleformat{\section}{\fontfamily{phv}\selectfont\huge\raggedright\color{cs-blue}}{}{0pt}{\includegraphics[height=1em]{sectionTitleGraphic.jpg}~}
-\titleformat{\subsection}{\fontfamily{phv}\selectfont\Large\raggedright\color{cs-blue}}{}{0pt}{}
-\titleformat{\subsubsection}{\fontfamily{phv}\selectfont\raggedright}{}{0pt}{}
+\titleformat{\section}{\fontfamily{phv}\selectfont\huge\raggedright\color{cs-blue}}{}{0pt}{{\includegraphics[height=1em]{sectionTitleGraphic.jpg}~} \MakeUppercase{#1}}
+\titleformat{\subsection}{\fontfamily{phv}\selectfont\Large\raggedright\color{cs-blue}}{}{0pt}{#1}
+\titleformat{\subsubsection}{\fontfamily{phv}\selectfont\raggedright}{}{0pt}{#1}
 
 %Define spacing around titles %{left spacing}{before spacing}{after spacing}[right]
 \titlespacing\subsection{0pt}{10pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
@@ -375,6 +373,16 @@
 		#3 
 	\end{minipage}
 }
+
+%============= table footnotes ==============
+
+\newcommand{%
+	\ieeecsTableFootnote}[1]{%
+	\vspace{-4em}
+	\setlength{\parindent}{5ex}
+	\ssmall{#1}
+}
+
 
 %============= Acknowlegment Environment  ==============
 
