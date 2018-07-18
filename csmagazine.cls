@@ -308,14 +308,14 @@
 
 %Setup figure captions
 \DeclareCaptionFormat{myFigureCapformat}{%
-	{\fontfamily{phv}\selectfont{\color{cs-blue}#1#2#3}}
+	{\fontfamily{phv}\selectfont{\color{cs-blue}#1. #3}}
 	\noindent\hdashrule{\textwidth}{1pt}{1pt}
 } 
 \captionsetup[figure]{format=myFigureCapformat}
 
 %Setup table captions
 \DeclareCaptionFormat{myTableCapformat}{%
-	{\fontfamily{phv}\selectfont{\color{cs-green}#1#2#3}}
+	{\fontfamily{phv}\selectfont{\color{cs-green}#1. #3}}
 } 
 \captionsetup[table]{format=myTableCapformat}
 
