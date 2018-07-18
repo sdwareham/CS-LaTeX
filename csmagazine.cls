@@ -319,6 +319,12 @@
 } 
 \captionsetup[table]{format=myTableCapformat}
 
+%Table content should be sans-serif
+\renewenvironment{table}%
+{\renewcommand\familydefault\sfdefault
+	\@float{table}}
+{\end@float}
+
 
 %===== Boxed Text =============
 
