@@ -386,7 +386,7 @@
 	\ieeecsTableFootnote}[1]{%
 	\vspace{-4em}
 	\setlength{\parindent}{5ex}
-	\ssmall{#1}
+	\ssmall{#1}\normalsize
 }
 
 
