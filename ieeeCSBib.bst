@@ -6,7 +6,7 @@
 %%
 %% merlin.mbs  (with options: `seq-no,nm-init,ed-au,nmlm,x90,x9,m3,dt-jnl,tit-qq,bt-qq,atit-u,trtit-b,vnum-nr,volp-com,jwdpg,pp-last,jwdvol,num-xser,ser-vol,ser-ed,pre-edn,isbn,issn,doi,blk-com,in-x,pp,ed,abr,ednx,ord,etal-xc,url,url-blk,nfss,')
 %% ----------------------------------------
-%% *** IEEE Computer Society magazines ***
+%% *** For use with IEEE Computer Society magazines ***
 %% 
 %% Copyright 1994-2011 Patrick W Daly
  % ===============================================================
@@ -439,17 +439,15 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      %"{f.~}{vv~}{ll}{, jj}"
-      "{f{.}.~}{vv~}{ll}{, jj}"
+      "{f.~}{vv~}{ll}{, jj}"
       format.name$
       bibinfo bibinfo.check
       't :=
       nameptr #1 >
         {
-          nameptr #3
+          nameptr #1
           #1 + =
-          numnames #9
-          #90 +
+          numnames #3
           > and
             { "others" 't :=
               #1 'namesleft := }
@@ -487,6 +485,7 @@ FUNCTION {format.names}
   while$
   } if$
 }
+
 FUNCTION {format.names.ed}
 {
   format.names
@@ -867,10 +866,14 @@ FUNCTION {bt.enquote}
   }
   if$
 }
+
+
 FUNCTION {format.booktitle}
 {
   booktitle "booktitle" bibinfo.check
-  bt.enquote
+  %output.check
+  %bt.enquote
+  
 }
 FUNCTION {format.in.ed.booktitle}
 { format.booktitle duplicate$ empty$ 'skip$
@@ -1182,14 +1185,16 @@ FUNCTION {inproceedings}
   end.quote.title
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      end.quote.btitle
+      emphasize
+      %end.quote.btitle
       format.number.series output
       publisher empty$
-        { format.organization.address output }
+        {}% format.organization.address output }
         { organization "organization" bibinfo.check output
           format.publisher.address output
         }
       if$
+      format.date "year" output.check
       format.isbn output
       format.issn output
     }
