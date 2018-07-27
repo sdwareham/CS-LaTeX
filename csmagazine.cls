@@ -2,7 +2,7 @@
 %Version of LaTeX required
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{csmagazine}[June 15, 2018. IEEE Computer Society magazine LaTeX class]
+\ProvidesClass{csmagazine}
 
 %Based on extarticle class for extended font sizes
 \LoadClass[9pt, letterpaper, twoside]{extarticle}
