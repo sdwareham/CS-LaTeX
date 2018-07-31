@@ -1,5 +1,5 @@
 
-%% Version 0.6.5
+%% Version 0.7
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                             %%
@@ -68,8 +68,8 @@
 	Third Author\\ \ieeecsAffiliation{Third Author Affiliation}\\ 
 }
 
-\begin{document}
 
+\begin{document}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,12 +84,20 @@
 %%                                          %%
 %%  MAGAZINE TITLE = The magazine name you  %%
 %%  are writing for                         %%
+%%                                          %%
+%%  Article type = The type of article you  %%
+%%  are writing. (Feature, Department,      %%
+%%  etc.)                                   %%
+%%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\ieeecsPageHeaders{Section Title Goes Here}{MAGAZINE TITLE}
+\ieeecsPageHeaders{Section Title}{MAGAZINE TITLE}{Article Type}
 
 \ieeecsArticleTitle
+
+%Use the command below to add a subtitle to your article title
+%\ieeecsArticleSubTitle{Optional Article Subtitle should go here}
 
 \ieeecsInsertAuthor
 
@@ -108,7 +116,9 @@
 %Computer Society style is \raggedright for the abstract
 \raggedright
 
+
 \ieeecsAbstract{This template (cs.tex) provides authors of IEEE Computer Society magazine articles with a guide for preparing \LaTeX~ manuscripts for submission and a starting point for editing the contents of these manuscripts. Only \LaTeX~ documents created using this template can be accepted by the IEEE Computer Society. Custom commands and the use of \LaTeX\ packages not appearing in this template are not allowed. Please use this template to format your paper by replacing it's contents with that of your won. Replace this paragraph with your abstract. Abstracts should be a single paragraph and cannot contain math or citations. Please use the \textbf{\textbackslash{}ieeecsAbstract\{\}} command for abstracts. If your paper does not contain an abstract please be sure to pass the \textbf{noAbstract} option to the csmagazine class. The abstract will appear in a sans-serif font.}
+
 
 %Computer Society style is \RaggedRight for the article body
 \RaggedRight 
@@ -124,6 +134,8 @@
 
 
 Insert your introduction here, before any main sections. The introduction does not need a section heading and should be no longer than three paragraphs. It may contain math and citations. There is no special command needed for introductions, it can created by paragraphs of text that appear before the first \textbf{\textbackslash{}section command}.
+
+\newpage
 
 \section{Sections and the Body of the Article}
 
@@ -192,7 +204,6 @@ x^n + y^n = z^n
 
 For inline math please use the single `\$' symbols. \textbf{Example:} $\int\frac{d\theta} {1+\theta^2}=\tan^{-1} \theta+C$.
 
-\pagebreak
 
 \subsection{Lists}
 
@@ -279,7 +290,7 @@ If your paper contains portraits of contributors, roundtable panelists, or inter
 \ieeecsPortrait{portrait.png}{0.25\textwidth}{The bio of the contributor should go here. This could also be a statement.}
 
 %\vspace is used here since we have a very short bio and we want to make sure the next section starts after the portrait.
-\vspace{7em}
+\vspace{9em}
 
 
 \subsection{Tables}
@@ -310,9 +321,9 @@ Use the tabluar environment to build your table within \LaTeX. Tables require a 
 
 \ieeecsTableFootnote{*If the table has a footnote add it after the table with the \textbf{ieeecsTableFootnote} command.}
 
-\pagebreak
 %\newnew page or \clearpage may be used to start a new page
 
+\newpage
 
 \section{Distinct Article Elements}
 
@@ -374,7 +385,6 @@ A .bib file is required for your references. We will be using \BibTeX\ to compil
 Enter an acknowledgment here, within the \textbf{ieeeCSAcknowledgment} environment.
 \end{ieeecsAcknowledgment}	
 
-\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%
@@ -384,10 +394,11 @@ Enter an acknowledgment here, within the \textbf{ieeeCSAcknowledgment} environme
 
 \ieeecsReferences{REFERENCES}
 
+
 %Usage of the ieeeCSBib reference style file is required
 \bibliographystyle{ieeeCSBib}
 
-%change refs.bib to the name of your .bib file
+%change refs to the name of your .bib file
 \bibliography{refs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -15,7 +15,9 @@
 %hasAbstract Option: Define \ieeecsAbstract to contain text
 \DeclareOption{hasAbstract}{\newcommand{%
 		\ieeecsAbstract}[1]{%
+		\begin{spacing}{1.5}
 		\noindent\textsf{{\small #1}}
+		\end{spacing}
 }}
 
 %noAbstract Option: Define \ieeecsAbstract to be empty
@@ -131,8 +133,11 @@
 %To add a dashed rule under figure captions
 \RequirePackage{dashrule}
 
-%To set leading
+%To set leading of the body of the article
 \RequirePackage{leading}
+
+%Sets line spacing, used in the abstract
+\usepackage{setspace}
 
 %Changes scaling of \Huge
 \RequirePackage[12pt]{moresize}
@@ -210,6 +215,9 @@
 %set spacing between paragraphs
 \setlength{\parskip}{1em}
 
+%set spacing for reference items
+\setlength{\bibsep}{0pt plus 0.3ex}
+
 %Set lists style for lslistings environments
 \lstset{basicstyle=\ttfamily,breaklines=true, escapeinside={(\%*}{\%*)},}
 
@@ -218,7 +226,7 @@
 %============= First Page Header Graphic / Running page headers ==============
 
 \newcommand{%
-	\ieeecsPageHeaders}[2]{%
+	\ieeecsPageHeaders}[3]{%
 	\pagestyle{fancy}
 	\fancyhf{}
 	\fancyhead[LO]{\includegraphics[width=2em]{pageHeader.jpg}{\fontfamily{phv}\small\color{cs-grey} ~~#1}}% Odd page header and number to left top
@@ -236,7 +244,7 @@
 	\vspace*{-1in}
 	{\fontfamily{phv}\fontsize{10pt}{15pt}
 		\selectfont
-		\noindent\hspace{-1.5em}\fcolorbox{cs-grey}{cs-grey}{\makebox[\textwidth + .75in][l]{\color{white}#1}}
+		\noindent\hspace{-1.5em}\fcolorbox{cs-grey}{cs-grey}{\makebox[\textwidth + .75in][l]{\color{white}#3: #1}}
 	}
 	\vspace*{.5in}
 	
@@ -262,6 +270,19 @@
 	
 	\normalsize	
 	\vspace*{1em}
+}
+
+
+%============= Article subtitle ==============
+\newcommand{%
+	\ieeecsArticleSubTitle}[1]{%
+		\vspace{-2em}
+		\begin{flushleft}
+		{\fontfamily{phv}			
+			\selectfont	
+			\huge#1
+		}
+		\end{flushleft}
 }
 
 
@@ -292,8 +313,9 @@
 \titleformat{\subsubsection}{\fontfamily{phv}\selectfont\raggedright}{}{0pt}{#1}
 
 %Define spacing around titles %{left spacing}{before spacing}{after spacing}[right]
-\titlespacing\subsection{0pt}{10pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{6pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\section{0pt}{10pt plus 2pt minus 2pt}{0pt}
+\titlespacing\subsection{0pt}{6pt}{0pt}
+\titlespacing\subsubsection{0pt}{4pt}{0pt}
 
 %============= Custom captions ==============
 
@@ -343,13 +365,13 @@
 	}
 	\\
 	\vspace*{.25em}
-	{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize }
+	{\fontfamily{phv}\selectfont\huge\noindent #1 \normalsize }
 	\vspace*{-1em}
 	
 	%to remove references title created by bibtex
 	\renewcommand{\refname}{\textsc{}}
 	\titleformat{\section}{}{}{}{}
-	\vspace*{-4em}
+	\vspace*{-3em}
 	
 }
 
@@ -363,7 +385,7 @@
 		\noindent\hdashrule{\textwidth}{1pt}{1pt}
 	}
 	\\	
-	\vspace*{.25em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize}
+	\vspace*{.25em}{\fontfamily{phv}\selectfont\huge\noindent #1 \normalsize}\vspace*{-.5em}
 }
 
 
@@ -384,7 +406,7 @@
 
 \newcommand{%
 	\ieeecsTableFootnote}[1]{%
-	\vspace{-4em}
+	\vspace{-3em}
 	\setlength{\parindent}{5ex}
 	\ssmall{#1}\normalsize
 }
@@ -405,7 +427,7 @@
 	\noindent\hdashrule{\textwidth}{1pt}{1pt}
 	}
 	\\	
-	\vspace*{.25em}{\fontfamily{phv}\selectfont\Large\noindent #1 \normalsize}
+	\vspace*{.25em}{\fontfamily{phv}\selectfont\huge\noindent #1 \normalsize}\vspace*{-.5em}
 }
 
 
