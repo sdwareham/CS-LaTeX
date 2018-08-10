@@ -323,7 +323,7 @@
 \DeclareCaptionFormat{myAlgorithmCapformat}{%
 	\vspace{1em}
 	
-	{\fontfamily{phv}\selectfont{\color{cs-blue}#1#2#3}}
+	{\fontfamily{phv}\selectfont{\color{cs-blue}#1. #3}}
 	\noindent\hdashrule{\textwidth}{1pt}{1pt}
 } 
 \captionsetup[lstlisting]{format=myAlgorithmCapformat}
