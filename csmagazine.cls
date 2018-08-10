@@ -516,3 +516,6 @@
 			\kern\XekernafterE}}}
 \def\XeTeX{\Xe\TeX}
 \def\XeLaTeX{\Xe{\kern.11em \LaTeX}}
+
+%Define URL style
+\urlstyle{same}
